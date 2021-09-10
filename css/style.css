@@ -2667,7 +2667,7 @@ body.ie ._ibg img {
 .mini-cart__items {
   display: none;
   padding: 0px 22px 15px 16px;
-  max-height: 360px;
+  max-height: 358px;
   overflow: auto;
 }
 
