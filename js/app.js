@@ -1323,7 +1323,7 @@ userbarItems.forEach(userbarItem => {
 			userbarItem.addEventListener("mouseleave", function (e) {
 				setTimeout(function () {
 					if (!activePopup.classList.contains('_show')) {
-							
+
 					} else {
 						let itemsWrapper = activePopup.querySelector('.mini-cart__items');
 						let emptyMessage = activePopup.querySelector('.mini-cart__empty');
@@ -1365,11 +1365,49 @@ function getUserBarInfo(activePopup) {
 	}
 }
 
-let searchIcon = document.querySelector('.user-bar__input');
+let searchInput = document.querySelector('.user-bar__input');
+let headerMenu = document.querySelector('.main-header__menu');
+let searchBlock = document.querySelector('.user-bar__item_search');
+let searchIcon = document.querySelector('.user-bar__icon svg');
+let clearInputIcon = document.querySelector('.user-bar__clear-input-btn');
+let searchHideIcon = document.querySelector('.user-bar__hide-search');
+let searchList = document.querySelector('.user-bar__search-list');
 
-searchIcon.addEventListener("click", function(e) {
-	searchIcon.classList.toggle('_active');
-});
+searchBlock.addEventListener("click", function (e) {
+	if (e.target.contains(searchIcon)) {
+		searchInput.classList.add('_active');
+		headerMenu.classList.add('hidden');
+		searchBlock.classList.add('_active');
+	}
+	if (e.target.contains(clearInputIcon)) {
+		searchInput.value = "";
+		console.log('cleared');
+	}
+
+	searchInput.addEventListener('input', function (e) {
+		console.log('show');
+		searchList.classList.add('_show');
+	});
+
+	if (e.target.contains(searchHideIcon)) {
+		searchInput.classList.remove('_active');
+		headerMenu.classList.remove('hidden');
+		searchBlock.classList.remove('_active');
+		searchList.classList.remove('_show');
+	}
+	
+
+	if (isMobile.any()) {
+		searchInput.addEventListener('blur', function (e) {
+			searchInput.classList.remove('_active');
+			headerMenu.classList.remove('hidden');
+			searchBlock.classList.remove('_active');
+			searchList.classList.remove('_show');
+			searchInput.value = "";
+		});
+		}
+}); 
+
 
 //let btn = document.querySelectorAll('button[type="submit"],input[type="submit"]');
 let forms = document.querySelectorAll('form');
@@ -1824,12 +1862,17 @@ function input_placeholder_add(input) {
 	}
 }
 function input_focus_add(input) {
-	input.classList.add('_focus');
-	input.parentElement.classList.add('_focus');
+	if (!input.classList.contains('user-bar__input')) {
+		input.classList.add('_focus');
+		input.parentElement.classList.add('_focus');
+	}
+	
 }
 function input_focus_remove(input) {
-	input.classList.remove('_focus');
-	input.parentElement.classList.remove('_focus');
+	if (!input.classList.contains('user-bar__input')) {
+		input.classList.remove('_focus');
+		input.parentElement.classList.remove('_focus');
+	};
 }
 function input_clear_mask(input, input_g_value) {
 	input.inputmask.remove();
