@@ -1409,6 +1409,23 @@ searchBlock.addEventListener("click", function (e) {
 }); 
 
 
+//=====================================================
+//Скрипт находит карточки категорий и вычесляет описание большого размера, которые могут поломать верстку и установливает для них высоту. 
+
+let hoverTexts =document.querySelectorAll('.category__text-hover p');
+
+hoverTexts.forEach(hoverTextActive => {
+	let currentHeight = hoverTextActive.offsetHeight;
+
+	if (currentHeight > 100 && currentHeight < 130) {
+		hoverTextActive.parentNode.classList.add('_medium');
+	}
+
+	if (currentHeight > 150) {
+		hoverTextActive.parentNode.classList.add('_large');;
+	}
+});
+
 //let btn = document.querySelectorAll('button[type="submit"],input[type="submit"]');
 let forms = document.querySelectorAll('form');
 if (forms.length > 0) {
