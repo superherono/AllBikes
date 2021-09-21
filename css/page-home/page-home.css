@@ -295,8 +295,8 @@
 .product__favourites {
   position: absolute;
   z-index: 2;
-  top: 15px;
-  right: 6px;
+  top: 14px;
+  right: 26px;
 }
 
 .product__image-wrapper {
@@ -422,6 +422,10 @@
   color: var(--main-gray);
 }
 
+.reviews__rating {
+  font-size: 15px;
+}
+
 .reviews__quantity {
   color: var(--main-gray);
   font-size: 13px;
@@ -458,6 +462,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.color-scheme-product__wrapper_picking {
+  width: 97px;
+  height: 59px;
 }
 
 .color-scheme-product__main {
@@ -597,120 +606,6 @@
           align-items: center;
 }
 
-.benefits {
-  background-color: var(--darkest-gray);
-}
-
-.benefits__content {
-  padding: 96px 20px;
-}
-
-.benefits__items {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.benefits__item {
-  position: relative;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 24.5%;
-          flex: 0 1 24.5%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 48px 31px 32px;
-  background-color: var(--darken-gray);
-  border-radius: 8px;
-}
-
-.benefits__item::after {
-  content: "";
-  position: absolute;
-  top: -32px;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0px);
-      -ms-transform: translate(-50%, 0px);
-          transform: translate(-50%, 0px);
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: -webkit-gradient(linear, left top, right top, from(#D77009), to(#FFAC00));
-  background: -o-linear-gradient(left, #D77009 0%, #FFAC00 100%);
-  background: linear-gradient(90deg, #D77009 0%, #FFAC00 100%);
-}
-
-.benefits__item::before {
-  content: "";
-  z-index: 2;
-  position: absolute;
-  left: 50%;
-  display: block;
-  -webkit-transform: translate(-50%, 0px);
-      -ms-transform: translate(-50%, 0px);
-          transform: translate(-50%, 0px);
-}
-
-.benefits__item:not(:last-child) {
-  margin: 0px 64px 0px 0px;
-}
-
-.benefits__item_first.benefits__item::before {
-  top: -18px;
-  width: 38px;
-  height: 36px;
-  background: url("../img/icons/sprites/sprite.svg#account_balance_wallet") 0 0/cover no-repeat;
-}
-
-.benefits__item_second::before {
-  top: -23px;
-  left: 49.9%;
-  width: 38px;
-  height: 42px;
-  background: url("../img/icons/sprites/sprite.svg#account_balance") 0 0/cover no-repeat;
-}
-
-.benefits__item_third::before {
-  top: -21px;
-  width: 40px;
-  height: 32px;
-  background: url("../img/icons/sprites/sprite.svg#credit_card") 0 0/cover no-repeat;
-}
-
-.benefits__label {
-  padding-bottom: 34px;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.0136363636em;
-  line-height: 127.2727272727%;
-  color: var(--main-white);
-  text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.benefits__description {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
-  margin-bottom: 27px;
-  padding-top: 24px;
-  color: var(--main-white);
-  opacity: 0.75;
-  font-size: 16px;
-  line-height: 162.5%;
-  text-align: center;
-}
-
 .about-us__title {
   margin: 0px 0px 1.5em 0px;
   -moz-text-align-last: left;
@@ -723,11 +618,15 @@
   line-height: 168.4210526316%;
 }
 
+.about-us__text_product-page {
+  margin-bottom: 28px;
+}
+
 .about-us__mountains {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: url("../img/desktop/page-home/mountains.svg") 0 bottom/contain no-repeat;
+  background: url("../img/desktop/mountains.svg") 0 bottom/contain no-repeat;
   -webkit-transition: background-position 1s ease 0.1s;
   -o-transition: background-position 1s ease 0.1s;
   transition: background-position 1s ease 0.1s;
@@ -737,6 +636,29 @@
 
 .about-us__mountains._active {
   background-position: 0 bottom;
+}
+
+.about-us__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.about-us__link {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  height: 26px;
+  color: var(--main-yellow);
+  font-weight: 800;
+  letter-spacing: 0.01875em;
+  line-height: 162.5%;
+  -webkit-transition: color 0.3s ease 0s;
+  -o-transition: color 0.3s ease 0s;
+  transition: color 0.3s ease 0s;
 }
 
 .about-us__bike {
@@ -807,6 +729,22 @@
 .about-us__bike._active .bike_circle-2 {
   top: 101px;
   left: 229px;
+}
+
+.about-us__truck {
+  width: 600px;
+  padding-top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.about-us__truck svg {
+  width: 294px;
+  height: 214px;
 }
 
 @-webkit-keyframes spin {
@@ -983,12 +921,6 @@
   }
 }
 
-@media (min-width: 1387px) {
-  .benefits__description {
-    max-width: 257px;
-  }
-}
-
 @media (min-width: 1440px) {
   .about-us__bike {
     -webkit-transform: translate(1000px, 0px);
@@ -1016,29 +948,14 @@
 }
 
 @media (max-width: 1387px) {
-  .benefits__items {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-
-  .benefits__item {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 40%;
-            flex: 0 1 40%;
-  }
-
-  .benefits__item:not(:last-child) {
-    margin: 0px 0px 65px 0px;
-  }
-
-  .benefits__item_first.benefits__item {
-    margin-right: 64px;
-  }
-
   .about-us__bike._active {
     -webkit-transform: translate(0px, 0px);
         -ms-transform: translate(0px, 0px);
             transform: translate(0px, 0px);
+  }
+
+  .about-us__truck {
+    width: 380px;
   }
 }
 
@@ -1102,17 +1019,6 @@
 
   .category__text-hover {
     display: none;
-  }
-
-  .benefits__items {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-
-  .benefits__item_first.benefits__item {
-    margin-right: 0;
   }
 
   .about-us__mountains {
@@ -1204,6 +1110,24 @@
   }
 }
 
+@media (max-width: 620px) {
+  .about-us__text_product-page {
+    margin-bottom: 0;
+  }
+
+  .about-us__truck {
+    width: auto;
+    -webkit-transform: translate(15px, 0px);
+        -ms-transform: translate(15px, 0px);
+            transform: translate(15px, 0px);
+  }
+
+  .about-us__truck svg {
+    width: 150px;
+    height: 105px;
+  }
+}
+
 @media (max-width: 600px) {
   .partners__content {
     -webkit-box-orient: vertical;
@@ -1241,7 +1165,7 @@
     display: block;
     width: 16px;
     height: 16px;
-    background: url("../img/icons/sprites/arrow-partners.svg") 0 0 no-repeat;
+    background: url("../img/icons/arrow-partners.svg") 0 0 no-repeat;
   }
 
   .partners__image {
@@ -1358,7 +1282,13 @@
   }
 
   .reviews__quantity {
+    line-height: 100%;
     font-size: 10px;
+  }
+
+  .color-scheme-product__wrapper_picking {
+    width: 85px;
+    height: 45px;
   }
 
   .top-sales__header {
@@ -1384,71 +1314,30 @@
     margin-bottom: 31px;
   }
 
-  .benefits__content {
-    padding: 48px 20px;
-  }
-
-  .benefits__items {
-    max-width: 224px;
-    margin: 0px auto;
-  }
-
-  .benefits__item {
-    padding: 36px 16px 16px;
-  }
-
-  .benefits__item::after {
-    width: 48px;
-    height: 48px;
-    top: -24px;
-  }
-
-  .benefits__item:not(:last-child) {
-    margin-bottom: 44px;
-  }
-
-  .benefits__item_first.benefits__item::before {
-    top: -9px;
-    width: 19px;
-    height: 19px;
-  }
-
-  .benefits__item_second::before {
-    top: -11px;
-    width: 19px;
-    height: 22px;
-  }
-
-  .benefits__item_third::before {
-    top: -9px;
-    width: 20px;
-    height: 17px;
-  }
-
-  .benefits__label {
-    padding-bottom: 17px;
-    font-size: 16px;
-  }
-
-  .benefits__description {
-    max-width: 180px;
-    margin-bottom: 17px;
-    padding-top: 16px;
-    font-size: 10px;
-  }
-
   .about-us__title {
     margin-bottom: 16px;
   }
 
   .about-us__text {
-    max-width: 240px;
-    padding-bottom: 32px;
+    max-width: none;
+    padding-bottom: 24px;
     font-size: 13px;
   }
 
   .about-us__mountains {
-    background-size: 354px 50px;
+    background-size: 445px 50px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+
+  .about-us__info {
+    padding: 0 15px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
   }
 
   .about-us__bike {
@@ -1465,9 +1354,9 @@
   }
 
   .about-us__bike._active {
-    -webkit-transform: translate(0px, 0);
-        -ms-transform: translate(0px, 0);
-            transform: translate(0px, 0);
+    -webkit-transform: translate(70px, 0);
+        -ms-transform: translate(70px, 0);
+            transform: translate(70px, 0);
   }
 
   .about-us__bike._active .bike_circle {
@@ -1485,6 +1374,16 @@
   .about-us__bike._active .bike_circle-2 {
     top: 34px;
     left: 116px;
+  }
+
+  .about-us__truck {
+    padding-top: 24px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
 
   .stocks {
@@ -1531,6 +1430,17 @@
   .item-stocks__description {
     padding-top: 16px;
     font-size: 10px;
+  }
+}
+
+@media (max-width: 425px) {
+  .about-us__mountains {
+    background-size: 380px 50px;
+    margin: 0 -15px;
+  }
+
+  .about-us__link {
+    padding-right: 15px;
   }
 }
 
@@ -1608,5 +1518,9 @@
 
   .product__compare:hover svg {
     --compare-hover-color: #111;
+  }
+
+  .about-us__link:hover {
+    color: var(--hover-color);
   }
 }

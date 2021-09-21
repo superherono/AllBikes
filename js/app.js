@@ -192,6 +192,155 @@ let sliderStocks = new Swiper('.stocks__items', {
 	//},
 });
 
+let heroProductPageSlider = new Swiper('.hero-product-page__slider', {
+	slidesPerView: 1,
+	spaceBetween: 10,
+	speed: 800,
+	autoHeight: true,
+	//touchRatio: 0,
+	//simulateTouch: false,
+	//loop: true,
+	//preloadImages: false,
+	//lazy: true,
+	// Dotts
+	pagination: {
+		el: '.hero__bullets',
+		clickable: true,
+	},
+	// Arrows
+	navigation: {
+		nextEl: '.hero__arrow_right',
+		prevEl: '.hero__arrow_left',
+	},
+	/*
+	breakpoints: {
+		320: {
+			slidesPerView: 1,
+			spaceBetween: 0,
+			autoHeight: true,
+		},
+		768: {
+			slidesPerView: 2,
+			spaceBetween: 20,
+		},
+		992: {
+			slidesPerView: 3,
+			spaceBetween: 20,
+		},
+		1268: {
+			slidesPerView: 4,
+			spaceBetween: 30,
+		},
+	},
+	*/
+	on: {
+		lazyImageReady: function () {
+			ibg();
+		},
+	}
+	// And if we need scrollbar
+	//scrollbar: {
+	//	el: '.swiper-scrollbar',
+	//},
+});
+
+let sliderSimilarGoods = new Swiper('.similar-goods__content', {
+	slidesPerView: 4,
+	spaceBetween: 30,
+	speed: 800,
+	watchSlidesVisibility: true,
+	// autoHeight: true,
+	//touchRatio: 0,
+	//simulateTouch: false,
+	loop: true,
+	//preloadImages: false,
+	//lazy: true,
+	// Dotts
+	// pagination: {
+	// 	el: '.hero__bullets',
+	// 	clickable: true,
+	// },
+	// Arrows
+	navigation: {
+		nextEl: '.top-sales__arrow_right',
+		prevEl: '.top-sales__arrow_left',
+	},
+
+	breakpoints: {
+		320: {
+			slidesPerView: 2.5,
+			spaceBetween: 16
+		},
+		600: {
+			slidesPerView: 3,
+			spaceBetween: 20,
+		},
+		1268: {
+			slidesPerView: 4,
+			spaceBetween: 30,
+		},
+	},
+
+	on: {
+		lazyImageReady: function () {
+			ibg();
+		},
+	}
+	// And if we need scrollbar
+	//scrollbar: {
+	//	el: '.swiper-scrollbar',
+	//},
+});
+
+let sliderBuyMore = new Swiper('.buy-more__content', {
+	slidesPerView: 4,
+	spaceBetween: 30,
+	speed: 800,
+	watchSlidesVisibility: true,
+	// autoHeight: true,
+	//touchRatio: 0,
+	//simulateTouch: false,
+	loop: true,
+	//preloadImages: false,
+	//lazy: true,
+	// Dotts
+	// pagination: {
+	// 	el: '.hero__bullets',
+	// 	clickable: true,
+	// },
+	// Arrows
+	navigation: {
+		nextEl: '.top-sales__arrow_right',
+		prevEl: '.top-sales__arrow_left',
+	},
+
+	breakpoints: {
+		320: {
+			slidesPerView: 2.5,
+			spaceBetween: 16
+		},
+		600: {
+			slidesPerView: 3,
+			spaceBetween: 20,
+		},
+		1268: {
+			slidesPerView: 4,
+			spaceBetween: 30,
+		},
+	},
+
+	on: {
+		lazyImageReady: function () {
+			ibg();
+		},
+	}
+	// And if we need scrollbar
+	//scrollbar: {
+	//	el: '.swiper-scrollbar',
+	//},
+});
+
+
 
 
 //==========================Слайдер с Прогресс баром==============================================================================================================================
@@ -436,6 +585,60 @@ window.addEventListener("load", function () {
 });
 
 let unlock = true;
+
+
+//=====================Init specifications spollers if specifications items lenght > 5================================
+
+
+
+if (isMobile.any()) {
+	let itemsBlock = document.querySelector('.specifications__content');
+	let specificationsItems = document.querySelectorAll('.specifications__item');
+	let itemsLenght = specificationsItems.length;
+
+	if (itemsBlock) {
+		itemsBlock.classList.add('_spollers');
+	}
+
+
+	if (itemsLenght > 0) {
+		specificationsItems.forEach(specificationsItem => {
+			let specificationsItemElements =specificationsItem.querySelectorAll('.specifications__row');
+			if (specificationsItemElements.length > 5) {
+				let hiddenSpollersBlock = document.createElement('div');
+				hiddenSpollersBlock.classList.add('_hide');
+				specificationsItem.querySelector('.specifications__body').append(hiddenSpollersBlock);
+
+
+				let link = '<button type="button" class="specifications__link">Смотреть все характеристики</button>';
+				for (let index = 0; index < specificationsItemElements.length; index++) {
+					const element = specificationsItemElements[index];
+					if (index == 4) {
+						element.insertAdjacentHTML('afterend', link);
+					}
+					if (index > 4) {
+						hiddenSpollersBlock.append(element);
+					}
+					
+				}
+			}
+		});
+
+		setSpollerClass();
+	}
+}
+function setSpollerClass() {
+	let spollersLinks =document.querySelectorAll('.specifications__link');
+	if (spollersLinks) {
+		spollersLinks.forEach(spollersLink => {
+			spollersLink.classList.add('_spoller');
+	
+			spollersLink.addEventListener("click", function(e) {
+				spollersLink.classList.add('_hide');
+			});
+		});
+	}
+}
 
 //=================
 //ActionsOnHash
@@ -869,7 +1072,6 @@ function _wrap(el, wrapper) {
 //========================================
 //RemoveClasses
 function _removeClasses(el, class_name) {
-	console.log(class_name);
 	for (var i = 0; i < el.length; i++) {
 		el[i].classList.remove(class_name);
 	}
@@ -945,118 +1147,124 @@ if (moreBlocks.length > 0) {
 	}
 }
 //==RATING======================================
-// const ratings = document.querySelectorAll('.rating');
-// if (ratings.length > 0) {
-// 	initRatings();
-// }
-// // Основная функция
-// function initRatings() {
-// 	let ratingActive, ratingValue;
-// 	// "Бегаем" по всем рейтингам на странице
-// 	for (let index = 0; index < ratings.length; index++) {
-// 		const rating = ratings[index];
-// 		initRating(rating);
-// 	}
+const ratings = document.querySelectorAll('.rating');
+if (ratings.length > 0) {
+	initRatings();
+}
+// Основная функция
+function initRatings() {
+	let ratingActive, ratingValue;
+	// "Бегаем" по всем рейтингам на странице
+	for (let index = 0; index < ratings.length; index++) {
+		const rating = ratings[index];
+		if (!rating.classList.contains('no-active')) {
+			initRating(rating);
+		}
+	}
 
-// 	// Инициализируем конкретный рейтинг
-// 	function initRating(rating) {
-// 		initRatingVars(rating);
+	// Инициализируем конкретный рейтинг
+	function initRating(rating) {
+		initRatingVars(rating);
 
-// 		setRatingActiveWidth();
+		setRatingActiveWidth();
 
-// 		if (rating.classList.contains('rating_set')) {
-// 			setRating(rating);
-// 		}
-// 	}
+		if (rating.classList.contains('rating_set')) {
+			setRating(rating);
+		}
+	}
 
-// 	// Инициализайция переменных
-// 	function initRatingVars(rating) {
-// 		ratingActive = rating.querySelector('.rating__active');
-// 		ratingValue = rating.querySelector('.rating__value');
-// 	}
-// 	// Изменяем ширину активных звезд
-// 	function setRatingActiveWidth(index = ratingValue.innerHTML) {
-// 		const ratingActiveWidth = index / 0.05;
-// 		ratingActive.style.width = `${ratingActiveWidth}%`;
-// 	}
-// 	// Возможность указать оценку 
-// 	function setRating(rating) {
-// 		const ratingItems = rating.querySelectorAll('.rating__item');
-// 		for (let index = 0; index < ratingItems.length; index++) {
-// 			const ratingItem = ratingItems[index];
-// 			ratingItem.addEventListener("mouseenter", function (e) {
-// 				// Обновление переменных
-// 				initRatingVars(rating);
-// 				// Обновление активных звезд
-// 				setRatingActiveWidth(ratingItem.value);
-// 			});
-// 			ratingItem.addEventListener("mouseleave", function (e) {
-// 				// Обновление активных звезд
-// 				setRatingActiveWidth();
-// 			});
-// 			ratingItem.addEventListener("click", function (e) {
-// 				// Обновление переменных
-// 				initRatingVars(rating);
+	// Инициализайция переменных
+	function initRatingVars(rating) {
+		ratingActive = rating.querySelector('.rating__active');
+		ratingValue = rating.querySelector('.rating__value');
+	}
+	// Изменяем ширину активных звезд
+	function setRatingActiveWidth(index = ratingValue.innerHTML) {
+		const ratingActiveWidth = index / 0.05;
+		ratingActive.style.width = `${ratingActiveWidth}%`;
+	}
+	// Возможность указать оценку 
+	function setRating(rating) {
+		const ratingItems = rating.querySelectorAll('.rating__item');
+		for (let index = 0; index < ratingItems.length; index++) {
+			const ratingItem = ratingItems[index];
+			ratingItem.addEventListener("mouseenter", function (e) {
+				// Обновление переменных
+				initRatingVars(rating);
+				// Обновление активных звезд
+				setRatingActiveWidth(ratingItem.value);
+			});
+			ratingItem.addEventListener("mouseleave", function (e) {
+				// Обновление активных звезд
+				setRatingActiveWidth();
+			});
+			ratingItem.addEventListener("click", function (e) {
+				// Обновление переменных
+				initRatingVars(rating);
 
-// 				if (rating.dataset.ajax) {
-// 					// "Отправить" на сервер
-// 					setRatingValue(ratingItem.value, rating);
-// 				} else {
-// 					// Отобразить указанную оцнку
-// 					ratingValue.innerHTML = index + 1;
-// 					setRatingActiveWidth();
-// 				}
-// 			});
-// 		}
-// 	}
+				if (rating.dataset.ajax) {
+					// "Отправить" на сервер
+					setRatingValue(ratingItem.value, rating);
+				} else {
+					// Отобразить указанную оцнку
+					ratingValue.innerHTML = index + 1;
+					setRatingActiveWidth();
+				}
+			});
+		}
+	}
 
-// 	async function setRatingValue(value, rating) {
-// 		if (!rating.classList.contains('rating_sending')) {
-// 			rating.classList.add('rating_sending');
+	async function setRatingValue(value, rating) {
+		if (!rating.classList.contains('rating_sending')) {
+			rating.classList.add('rating_sending');
 
-// 			// Отправика данных (value) на сервер
-// 			let response = await fetch('rating.json', {
-// 				method: 'GET',
+			// Отправика данных (value) на сервер
+			let response = await fetch('rating.json', {
+				method: 'GET',
 
-// 				//body: JSON.stringify({
-// 				//	userRating: value
-// 				//}),
-// 				//headers: {
-// 				//	'content-type': 'application/json'
-// 				//}
+				//body: JSON.stringify({
+				//	userRating: value
+				//}),
+				//headers: {
+				//	'content-type': 'application/json'
+				//}
 
-// 			});
-// 			if (response.ok) {
-// 				const result = await response.json();
+			});
+			if (response.ok) {
+				const result = await response.json();
 
-// 				// Получаем новый рейтинг
-// 				const newRating = result.newRating;
+				// Получаем новый рейтинг
+				const newRating = result.newRating;
 
-// 				// Вывод нового среднего результата
-// 				ratingValue.innerHTML = newRating;
+				// Вывод нового среднего результата
+				ratingValue.innerHTML = newRating;
 
-// 				// Обновление активных звезд
-// 				setRatingActiveWidth();
+				// Обновление активных звезд
+				setRatingActiveWidth();
 
-// 				rating.classList.remove('rating_sending');
-// 			} else {
-// 				alert("Ошибка");
+				rating.classList.remove('rating_sending');
+			} else {
+				alert("Ошибка");
 
-// 				rating.classList.remove('rating_sending');
-// 			}
-// 		}
-// 	}
-// }
+				rating.classList.remove('rating_sending');
+			}
+		}
+	}
+}
 //=====================Rating================================
 //Изменяем ширину активных звезд
 let allRatings = document.querySelectorAll('.rating__active');
 
 if (allRatings.length > 0) {
 	allRatings.forEach(ratingActive => {
-		// let ratingValue = ratingActive.querySelector('.rating__value');
-		let activeRatingValue = ratingActive.closest('.rating').querySelector('.rating__value').innerHTML;
+		let ratingValueBox = ratingActive.closest('.rating').querySelector('.rating__value');
+		let activeRatingValue = ratingActive.getAttribute('data-rating');
+		// let activeRatingValue = ratingValue.innerHTML;
 		// let ratingValue = ratingActive.innerHTML;
 		setRatingActiveWidth(activeRatingValue, ratingActive);
+		if (ratingValueBox) {
+			ratingValueBox.innerHTML = activeRatingValue;
+		}
 	});
 }
 
@@ -1232,12 +1440,14 @@ let colorSchemes = document.querySelectorAll('.color-scheme-product');
 
 if (colorSchemes.length > 0) {
 	colorSchemes.forEach(colorScheme => {
-		colorScheme.addEventListener("click", function (e) {
-			let parentBlock = colorScheme.closest('.product__colors');
-			let colorSchemesActive = parentBlock.querySelectorAll('.color-scheme-product');
-			_removeClasses(colorSchemesActive, '_active');
-			colorScheme.classList.add('_active');
-		});
+		if (colorScheme.closest('.product__colors')) {
+			colorScheme.addEventListener("click", function (e) {
+				let parentBlock = colorScheme.closest('.product__colors');
+				let colorSchemesActive = parentBlock.querySelectorAll('.color-scheme-product');
+				_removeClasses(colorSchemesActive, '_active');
+				colorScheme.classList.add('_active');
+			});
+		}
 	});
 }
 
@@ -1381,11 +1591,9 @@ searchBlock.addEventListener("click", function (e) {
 	}
 	if (e.target.contains(clearInputIcon)) {
 		searchInput.value = "";
-		console.log('cleared');
 	}
 
 	searchInput.addEventListener('input', function (e) {
-		console.log('show');
 		searchList.classList.add('_show');
 	});
 
@@ -1425,6 +1633,98 @@ hoverTexts.forEach(hoverTextActive => {
 		hoverTextActive.parentNode.classList.add('_large');;
 	}
 });
+
+//=====================Выбираем активный рамы продукта================================
+let sizeItems =document.querySelectorAll('.size-picking__item');
+
+if (sizeItems.length > 0) {
+	sizeItems.forEach(sizeItem => {
+		sizeItem.addEventListener("click", function(e) {
+				_removeClasses(sizeItems, '_active');
+				sizeItem.classList.add('_active');
+		});
+	});
+}
+//=====================================================
+if (isMobile.any()) {
+	
+	let mobSlider = document.querySelector('.mob-slider__content');
+	let mobSlides = document.querySelectorAll('.mob-slider__slide');
+	let sections = document.querySelectorAll('section[data-index]');
+	let mobSlidesLenght = mobSlides.length;
+	if (mobSlider) {
+		if (mobSlidesLenght > 0) {
+			for (let index = 0; index < mobSlides.length; index++) {
+				const mobSlide = mobSlides[index];
+				mobSlide.addEventListener("click", function(e) {
+					let i = mobSlide.getAttribute('data-index');
+					let data = 'section[data-index="' + i + '"]';
+					let activeSections = document.querySelectorAll(data);
+
+
+					_removeClasses(mobSlides, '_active');
+					_removeClasses(sections, '_active');
+					if (index == 2) {
+						mobSlider.classList.add('_active');
+					}else {
+						if (mobSlider.classList.contains('_active')) {
+							mobSlider.classList.remove('_active');
+						}
+					}
+					mobSlide.classList.add('_active');
+					activeSections.forEach(element => {
+						element.classList.add('_active');
+					});
+				});
+				
+			}
+		}
+	}
+}
+
+//=====================================================
+let buttonAddCart = document.querySelector('.product-bar__btn_add-cart');
+let buttonGoCart = document.querySelector('.product-bar__btn_go-cart');
+
+if (buttonAddCart) {
+	console.log('finded');
+	buttonAddCart.addEventListener("click", function(e) {
+		console.log('click');
+		buttonAddCart.classList.add('_hide');
+		buttonGoCart.classList.add('_active');
+		console.log('added');
+	});
+}
+
+//=====================clear input on Bank page================================
+let bankInput = document.querySelector('.town-search__input');
+let bankIconClose = document.querySelector('.town-search__icon_close');
+let bankSearchList = document.querySelector('.town-search__info');
+
+if (bankIconClose) {
+	bankIconClose.addEventListener("click", function(e) {
+		if (bankInput) {
+			bankInput.value = "";
+			if (bankSearchList) {
+				bankSearchList.classList.remove('_show');
+			}
+		}
+	});
+}
+if (bankInput) {
+	bankInput.addEventListener('input', function (e) {
+		if (bankSearchList) {
+			bankSearchList.classList.add('_show');
+		}
+	});
+}
+
+
+
+
+
+
+
 
 //let btn = document.querySelectorAll('button[type="submit"],input[type="submit"]');
 let forms = document.querySelectorAll('form');
@@ -1480,6 +1780,7 @@ async function form_submit(e) {
 		e.preventDefault();
 	}
 }
+
 function form_validate(form) {
 	let error = 0;
 	let form_req = form.querySelectorAll('._req');
@@ -1493,9 +1794,11 @@ function form_validate(form) {
 	}
 	return error;
 }
+
 function form_validate_input(input) {
 	let error = 0;
 	let input_g_value = input.getAttribute('data-value');
+
 
 	if (input.getAttribute("name") == "email" || input.classList.contains("_email")) {
 		if (input.value != input_g_value) {
@@ -1511,6 +1814,21 @@ function form_validate_input(input) {
 	} else if (input.getAttribute("type") == "checkbox" && input.checked == false) {
 		form_add_error(input);
 		error++;
+	} else if (input.getAttribute("type") == "radio") {
+		let a = input.getAttribute('name');
+		let parentRadio = input.parentElement;
+		let allRadioButtons = parentRadio.querySelectorAll('input[name="' + a + '"]');
+		var radioGroupO = Array.from(allRadioButtons);
+
+		function isCheked(i) {
+			return i.checked == true;
+		}
+
+		if (radioGroupO.some(isCheked) == false) {
+			form_add_error(parentRadio);
+			removeRadioError(parentRadio, allRadioButtons);
+			error++;
+		}
 	} else {
 		if (input.value == '' || input.value == input_g_value) {
 			form_add_error(input);
@@ -1519,8 +1837,19 @@ function form_validate_input(input) {
 			form_remove_error(input);
 		}
 	}
+	
 	return error;
 }
+function removeRadioError (parentRadio, allRadioButtons) {
+	allRadioButtons.forEach(element => {
+		element.addEventListener("change", function(event) {
+			if (parentRadio.classList.contains('_error')) {
+				form_remove_error(parentRadio);
+			}
+		})
+	});
+}
+
 function form_add_error(input) {
 	input.classList.add('_error');
 	input.parentElement.classList.add('_error');
@@ -1534,7 +1863,10 @@ function form_add_error(input) {
 		input.parentElement.insertAdjacentHTML('beforeend', '<div class="form__error">' + input_error_text + '</div>');
 	}
 }
+
 function form_remove_error(input) {
+	console.log('remove');
+	console.log(input);
 	input.classList.remove('_error');
 	input.parentElement.classList.remove('_error');
 
@@ -1543,6 +1875,7 @@ function form_remove_error(input) {
 		input.parentElement.removeChild(input_error);
 	}
 }
+
 function form_clean(form) {
 	let inputs = form.querySelectorAll('input,textarea');
 	for (let index = 0; index < inputs.length; index++) {
@@ -1587,6 +1920,7 @@ let selects = document.getElementsByTagName('select');
 if (selects.length > 0) {
 	selects_init();
 }
+
 function selects_init() {
 	for (let index = 0; index < selects.length; index++) {
 		const select = selects[index];
@@ -1602,6 +1936,7 @@ function selects_init() {
 		}
 	});
 }
+
 function selects_close(e) {
 	const selects = document.querySelectorAll('.select');
 	if (!e.target.closest('.select') && !e.target.classList.contains('_option')) {
@@ -1613,6 +1948,7 @@ function selects_close(e) {
 		}
 	}
 }
+
 function select_init(select) {
 	const select_parent = select.parentElement;
 	const select_modifikator = select.getAttribute('class');
@@ -1626,6 +1962,7 @@ function select_init(select) {
 	new_select.appendChild(select);
 	select_item(select);
 }
+
 function select_item(select) {
 	const select_parent = select.parentElement;
 	const select_items = select_parent.querySelector('.select__item');
@@ -1653,6 +1990,7 @@ function select_item(select) {
 
 	select_actions(select, select_parent);
 }
+
 function select_actions(original, select) {
 	const select_item = select.querySelector('.select__item');
 	const selectTitle = select.querySelector('.select__title');
@@ -1680,6 +2018,7 @@ function select_actions(original, select) {
 		}
 		select.querySelector('.select__value').innerHTML = '<span>' + selectedOptionsText + '</span>';
 	}
+
 	function selectItemActions(type) {
 		if (!type) {
 			let selects = document.querySelectorAll('.select');
@@ -1733,6 +2072,7 @@ function select_actions(original, select) {
 		});
 	}
 }
+
 function select_get_options(select_options) {
 	if (select_options) {
 		let select_options_content = '';
@@ -1747,6 +2087,7 @@ function select_get_options(select_options) {
 		return select_options_content;
 	}
 }
+
 function select_search(e) {
 	let select_block = e.target.closest('.select ').querySelector('.select__options');
 	let select_options = e.target.closest('.select ').querySelectorAll('.select__option');
@@ -1762,6 +2103,7 @@ function select_search(e) {
 		}
 	}
 }
+
 function selects_update_all() {
 	let selects = document.querySelectorAll('select');
 	if (selects) {
@@ -1872,25 +2214,29 @@ function inputs_init(inputs) {
 		}
 	}
 }
+
 function input_placeholder_add(input) {
 	const input_g_value = input.getAttribute('data-value');
 	if (input.value == '' && input_g_value != '') {
 		input.value = input_g_value;
 	}
 }
+
 function input_focus_add(input) {
-	if (!input.classList.contains('user-bar__input')) {
+	if (!input.classList.contains('user-bar__input') && !input.classList.contains('town-search__input')) {
 		input.classList.add('_focus');
 		input.parentElement.classList.add('_focus');
 	}
-	
+
 }
+
 function input_focus_remove(input) {
-	if (!input.classList.contains('user-bar__input')) {
+	if (!input.classList.contains('user-bar__input') && !input.classList.contains('town-search__input')) {
 		input.classList.remove('_focus');
 		input.parentElement.classList.remove('_focus');
 	};
 }
+
 function input_clear_mask(input, input_g_value) {
 	input.inputmask.remove();
 	input.value = input_g_value;
@@ -1927,7 +2273,13 @@ if (priceSlider) {
 	noUiSlider.create(priceSlider, {
 		start: [0, 200000],
 		connect: true,
-		tooltips: [wNumb({ decimals: 0, prefix: textFrom + ' ' }), wNumb({ decimals: 0, prefix: textTo + ' ' })],
+		tooltips: [wNumb({
+			decimals: 0,
+			prefix: textFrom + ' '
+		}), wNumb({
+			decimals: 0,
+			prefix: textTo + ' '
+		})],
 		range: {
 			'min': [0],
 			'max': [200000]
