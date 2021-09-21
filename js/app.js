@@ -1622,15 +1622,16 @@ searchBlock.addEventListener("click", function (e) {
 
 let hoverTexts =document.querySelectorAll('.category__text-hover p');
 
+
 hoverTexts.forEach(hoverTextActive => {
 	let currentHeight = hoverTextActive.offsetHeight;
 
-	if (currentHeight > 100 && currentHeight < 130) {
+	if (currentHeight > 90 && currentHeight < 130) {
 		hoverTextActive.parentNode.classList.add('_medium');
 	}
 
-	if (currentHeight > 150) {
-		hoverTextActive.parentNode.classList.add('_large');;
+	if (currentHeight > 145) {
+		hoverTextActive.parentNode.classList.add('_large');
 	}
 });
 

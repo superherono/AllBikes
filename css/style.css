@@ -6928,6 +6928,12 @@ textarea._error {
   .slide-hero__text {
     padding-right: 5px;
   }
+
+  .mob-slider__content._active {
+    -webkit-transform: translate(-23%, 0);
+        -ms-transform: translate(-23%, 0);
+            transform: translate(-23%, 0);
+  }
 }
 
 @media (max-width: 335px) {
