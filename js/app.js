@@ -1635,7 +1635,7 @@ hoverTexts.forEach(hoverTextActive => {
 	}
 });
 
-//=====================Выбираем активный рамы продукта================================
+//=====================Выбираем размер рамы продукта================================
 let sizeItems =document.querySelectorAll('.size-picking__item');
 
 if (sizeItems.length > 0) {
@@ -1690,10 +1690,8 @@ let buttonGoCart = document.querySelector('.product-bar__btn_go-cart');
 if (buttonAddCart) {
 	console.log('finded');
 	buttonAddCart.addEventListener("click", function(e) {
-		console.log('click');
 		buttonAddCart.classList.add('_hide');
 		buttonGoCart.classList.add('_active');
-		console.log('added');
 	});
 }
 
@@ -1720,6 +1718,50 @@ if (bankInput) {
 	});
 }
 
+//=====================================================
+// _slideToggle()
+
+let products =document.querySelectorAll('.catalogue__items .product');
+
+products.forEach(e => {
+	let hoverText = e.querySelector('.text-hover-product')
+	let productImage = e.querySelector('.product__image-wrapper');
+
+	if (hoverText && !isMobile.any()) {
+		let productMainHeight = e.offsetHeight;
+		let hoverHeight = hoverText.offsetHeight;
+		let currentHeieght = productMainHeight - hoverHeight;
+		console.log(currentHeieght);
+		hoverText.classList.add('_hide');
+		e.style.height = currentHeieght + "px";
+		e.addEventListener("mouseenter", function (e) {
+			productImage.classList.add('_hide-image');
+			_slideDown(hoverText);
+		});
+		e.addEventListener("mouseleave", function (e) {
+			console.log('test');
+			productImage.classList.remove('_hide-image');
+			_slideUp(hoverText);
+		});
+	}
+});
+
+
+//=====================Choose color scheme for product================================
+let productSizes = document.querySelectorAll('.text-hover-product__size');
+
+if (productSizes.length > 0) {
+	productSizes.forEach(productSize => {
+		if (productSize.closest('.text-hover-product__sizes')) {
+			productSize.addEventListener("click", function (e) {
+				let parentBlock = productSize.closest('.text-hover-product__sizes');
+				let productSizesActive = parentBlock.querySelectorAll('.text-hover-product__size');
+				_removeClasses(productSizesActive, '_active');
+				productSize.classList.add('_active');
+			});
+		}
+	});
+}
 
 
 
