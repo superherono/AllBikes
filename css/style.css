@@ -221,14 +221,6 @@ body._lock {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  opacity: 0;
-  -webkit-transition: opacity 0.3s ease 0s;
-  -o-transition: opacity 0.3s ease 0s;
-  transition: opacity 0.3s ease 0s;
-}
-
-.wrapper._loaded {
-  opacity: 1;
 }
 
 ._container {
@@ -4381,6 +4373,10 @@ textarea._error {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+.goods-cart__item:not(:last-child) {
+  margin: 0px 0px 32px 0px;
 }
 
 .item-cart__column {
