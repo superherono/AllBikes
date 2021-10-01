@@ -340,6 +340,65 @@ let sliderBuyMore = new Swiper('.buy-more__content', {
 	//},
 });
 
+let sliderCompare = new Swiper('.products-comparison__items', {
+	slidesPerView: 3,
+	speed: 800,
+	watchSlidesVisibility: true,
+	watchOverflow: true,
+	// autoHeight: true,
+	//preloadImages: false,
+	//lazy: true,
+	// Dotts
+	// pagination: {
+	// 	el: '.hero__bullets',
+	// 	clickable: true,
+	// },
+	scrollbar: {
+		el: '.products-comparison__scroll-bar',
+		draggable: true,
+	  },
+	// Arrows
+	navigation: {
+		nextEl: '.top-sales__arrow_right',
+		prevEl: '.top-sales__arrow_left',
+	},
+
+	breakpoints: {
+		320: {
+			slidesPerView: 2,
+			slidesPerGroup: 1,
+			spaceBetween: 20,
+			touchRatio: 1,
+			simulateTouch: true,
+			
+		},
+		475: {
+			slidesPerView: 1.2,
+		},
+		768: {
+			slidesPerView: 2,
+			
+		},
+		1200: {
+			touchRatio: 0,
+			simulateTouch: false,
+			spaceBetween: 0,
+		},
+		1387: {
+			slidesPerView: 3,
+		},
+	},
+
+	on: {
+		lazyImageReady: function () {
+			ibg();
+		},
+	}
+	// And if we need scrollbar
+	//scrollbar: {
+	//	el: '.swiper-scrollbar',
+	//},
+});
 
 
 
