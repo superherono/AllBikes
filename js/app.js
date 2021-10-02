@@ -1483,7 +1483,11 @@ async function getMoreQuestions(targetElem) {
 		alert('Что-то пошло не так...');
 	}
 }
-//========================================================================================================================================================
+//=====================Определяем есть ли на странице "бар" товара и добавляем соответсвующий класс футеру ================================
+let productBar = document.querySelector('.footer__product-bar');
+if (productBar) {
+	document.querySelector('.footer').classList.add('_bar-true');
+}
 
 //=====================Add to favorites================================
 let favourites = document.querySelectorAll('._favourites');
@@ -1747,7 +1751,6 @@ let buttonAddCart = document.querySelector('.product-bar__btn_add-cart');
 let buttonGoCart = document.querySelector('.product-bar__btn_go-cart');
 
 if (buttonAddCart) {
-	console.log('finded');
 	buttonAddCart.addEventListener("click", function(e) {
 		buttonAddCart.classList.add('_hide');
 		buttonGoCart.classList.add('_active');
@@ -1778,7 +1781,6 @@ if (bankInput) {
 }
 
 //=====================================================
-// _slideToggle()
 
 let products =document.querySelectorAll('.catalogue__items .product');
 
@@ -1820,6 +1822,43 @@ if (productSizes.length > 0) {
 			});
 		}
 	});
+}
+//=====================Order page. Add active class for choosed item================================
+let orderPage = document.querySelector('.order');
+if (orderPage) {
+	let orderBlock = document.querySelectorAll('.delivery-order__items');
+	let btnAddSelfCompany = document.querySelector('.item-delivery__info_by-self');
+	let inputAddSelfCompany = document.querySelector('.delivery-order__self-company');
+
+	let inputIsShowed = false;
+
+
+	orderBlock.forEach(element => {
+		element.addEventListener('click', event => {
+			let orderItem = event.target.closest('.item-delivery');
+			let addComapnyBtn = event.target.closest('.item-delivery__info_by-self');
+
+			if (inputIsShowed) {
+				_slideUp(inputAddSelfCompany);
+				inputIsShowed = false;
+			}
+			if (addComapnyBtn) {
+				_slideDown(inputAddSelfCompany);
+				inputIsShowed = true;
+			}
+			if (!orderItem) return;
+			if (!element.contains(orderItem)) return;
+			if(orderItem.classList.contains('_inactive')) return;
+			
+			let curentOrderBlock = orderItem.closest('.delivery-order__items');
+			let currentOrderItems = curentOrderBlock.querySelectorAll('.item-delivery');
+			_removeClasses(currentOrderItems, '_active');
+
+			orderItem.classList.add('_active');
+		  });
+		  
+	});
+
 }
 
 
