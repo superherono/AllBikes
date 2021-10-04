@@ -4310,6 +4310,21 @@ body.ie ._ibg img {
   opacity: 1;
 }
 
+.buy-more__content._swiper {
+  overflow: visible;
+}
+
+.buy-more__content._swiper .swiper-slide {
+  opacity: 0.5;
+  -webkit-transition: opacity 0.3s ease 0s;
+  -o-transition: opacity 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s;
+}
+
+.buy-more__content._swiper .swiper-slide-visible {
+  opacity: 1;
+}
+
 .sidebar {
   display: none;
   height: 705px;
@@ -7108,7 +7123,6 @@ body.ie ._ibg img {
         -ms-flex-align: center;
             align-items: center;
     width: 100%;
-    max-width: 480px;
     margin: 0px auto;
     padding: 13px 0;
     line-height: 162.5%;
@@ -9249,6 +9263,10 @@ body.ie ._ibg img {
     -ms-grid-row: 3;
     -ms-grid-row-span: 1;
     grid-row: 3/4;
+  }
+
+  .sidebar-catalogue__mob-btn {
+    position: static;
   }
 }
 
