@@ -651,6 +651,67 @@ textarea._error {
   font-weight: 600;
 }
 
+.town-choise {
+  position: fixed;
+  z-index: 90;
+  bottom: -200px;
+  right: 142px;
+  width: 480px;
+  padding: 16px 16px 20px;
+  background-color: #fff;
+  border: 1px solid #DFDFDF;
+  -webkit-box-shadow: 0px 6px 10px rgba(60, 61, 105, 0.1);
+          box-shadow: 0px 6px 10px rgba(60, 61, 105, 0.1);
+  border-radius: 6px;
+  -webkit-transition: bottom 1s ease 0s;
+  -o-transition: bottom 1s ease 0s;
+  transition: bottom 1s ease 0s;
+}
+
+.town-choise._active {
+  bottom: 118px;
+}
+
+.town-choise__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: transparent;
+}
+
+.town-choise__label {
+  margin-bottom: 28px;
+  font-size: 19px;
+  line-height: 168.4210526316%;
+  font-weight: 600;
+}
+
+.town-choise__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.town-choise__btn {
+  padding: 13px 52.5px;
+  line-height: 162.5%;
+  letter-spacing: 0.01875em;
+  font-weight: 800;
+  -webkit-transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
+  -o-transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
+  transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
+}
+
+.town-choise__btn_yes {
+  background-color: var(--main-yellow);
+  color: #fff;
+}
+
+.town-choise__btn_no {
+  color: var(--main-yellow);
+  background-color: #fff;
+}
+
 ._title {
   margin: 0px 0px 0.9705882353em 0px;
   font-size: 34px;
@@ -4983,6 +5044,10 @@ body.ie ._ibg img {
   display: block;
 }
 
+.town-search__info._show .town-search__add-text_finded {
+  display: block;
+}
+
 .town-search__add-text {
   display: none;
   margin-bottom: 16px;
@@ -4997,8 +5062,15 @@ body.ie ._ibg img {
   letter-spacing: 0.0157894737em;
 }
 
+.town-search__list li {
+  cursor: pointer;
+  -webkit-transition: color 0.2s ease 0s, font-weight 0.1s ease 0.1s;
+  -o-transition: color 0.2s ease 0s, font-weight 0.1s ease 0.1s;
+  transition: color 0.2s ease 0s, font-weight 0.1s ease 0.1s;
+}
+
 .town-search__list li:not(:last-child) {
-  margin: 0px 32px 0px 0px;
+  margin: 0px 0px 20px 0px;
 }
 
 .service-page {
@@ -9141,6 +9213,14 @@ body.ie ._ibg img {
     color: var(--main-black);
   }
 
+  .town-choise__btn_yes:hover {
+    background-color: var(--hover-color);
+  }
+
+  .town-choise__btn_no:hover {
+    color: var(--hover-color);
+  }
+
   ._arrow:hover {
     background-color: #f2f2f2;
     border: 1px solid #f2f2f2;
@@ -9616,6 +9696,11 @@ body.ie ._ibg img {
   .promocode__btn:hover {
     border-color: var(--hover-color);
     color: var(--hover-color);
+  }
+
+  .town-search__list li:hover {
+    color: var(--main-yellow);
+    font-weight: 700;
   }
 
   .technical__link:hover {

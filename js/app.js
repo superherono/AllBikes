@@ -1861,6 +1861,53 @@ if (orderPage) {
 
 }
 
+//=====================Всплывающая плашка о выборе города================================
+
+// let cookiClose = document.querySelector('._cookies__btn'); 
+// let cookeMessage = document.querySelector('._cookies');
+
+// window.addEventListener("load", function () {
+// 	if (cookeMessage) {
+// 		setTimeout(function () {
+// 			cookeMessage.classList.add('_active');
+// 		}, 0);
+// 	}
+// });
+
+
+// cookiClose.addEventListener("click", function(e) {
+// 	cookeMessage.classList.remove('_active');
+// });
+
+let townChoice = document.querySelector('.town-choise');
+	window.addEventListener("load", function () {
+		if (townChoice) {
+			setTimeout(function () {
+				townChoice.classList.add('_active');
+			}, 0);
+
+			townChoice.addEventListener("click", e => {
+				console.log(e.target);
+				
+				if (e.target.classList.contains('town-choise__btn_yes')) {
+					townChoice.classList.remove('_active');
+				}
+				if (e.target.classList.contains('town-choise__btn_no')) {
+					townChoice.classList.remove('_active');
+					popup_open('choice-town');
+
+				}
+					
+				let close = e.target.closest('.town-choise__close');
+				if (!close) return;
+				townChoice.classList.remove('_active');
+				
+			});
+		}
+	});
+	
+	
+
 
 
 
