@@ -253,8 +253,8 @@ let sliderSimilarGoods = new Swiper('.similar-goods__content', {
 	//touchRatio: 0,
 	//simulateTouch: false,
 	loop: true,
-	//preloadImages: false,
-	//lazy: true,
+	preloadImages: false,
+	lazy: true,
 	// Dotts
 	// pagination: {
 	// 	el: '.hero__bullets',
@@ -262,8 +262,8 @@ let sliderSimilarGoods = new Swiper('.similar-goods__content', {
 	// },
 	// Arrows
 	navigation: {
-		nextEl: '.top-sales__arrow_right',
-		prevEl: '.top-sales__arrow_left',
+		nextEl: '.hero__arrow_right',
+		prevEl: '.hero__arrow_left',
 	},
 
 	breakpoints: {

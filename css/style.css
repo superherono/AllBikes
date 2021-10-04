@@ -654,7 +654,7 @@ textarea._error {
 .town-choise {
   position: fixed;
   z-index: 90;
-  bottom: -200px;
+  bottom: -300px;
   right: 142px;
   width: 480px;
   padding: 16px 16px 20px;
@@ -4432,6 +4432,25 @@ body.ie ._ibg img {
   margin-bottom: 96px;
 }
 
+.similar-goods__container {
+  position: relative;
+}
+
+.similar-goods__container ._swiper {
+  overflow: visible;
+}
+
+.similar-goods__container ._swiper .swiper-slide {
+  opacity: 0.5;
+  -webkit-transition: opacity 0.3s ease 0s;
+  -o-transition: opacity 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s;
+}
+
+.similar-goods__container ._swiper .swiper-slide-visible {
+  opacity: 1;
+}
+
 .goods-cart__title {
   margin-bottom: 48px;
 }
@@ -7860,6 +7879,22 @@ body.ie ._ibg img {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 24px;
             flex: 0 0 24px;
+  }
+
+  .town-choise {
+    width: 200px;
+    right: 25px;
+  }
+
+  .town-choise__buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .town-choise__btn_yes {
+    margin-bottom: 15px;
   }
 
   .popup {
