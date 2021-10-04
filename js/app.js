@@ -359,8 +359,8 @@ let sliderCompare = new Swiper('.products-comparison__items', {
 	  },
 	// Arrows
 	navigation: {
-		nextEl: '.top-sales__arrow_right',
-		prevEl: '.top-sales__arrow_left',
+		nextEl: '.hero__arrow_right',
+		prevEl: '.hero__arrow_left',
 	},
 
 	breakpoints: {
@@ -372,13 +372,13 @@ let sliderCompare = new Swiper('.products-comparison__items', {
 			simulateTouch: true,
 			
 		},
-		475: {
-			slidesPerView: 1.2,
-		},
-		768: {
-			slidesPerView: 2,
+		// 475: {
+		// 	slidesPerView: 2,
+		// },
+		// 768: {
+		// 	slidesPerView: 2,
 			
-		},
+		// },
 		1200: {
 			touchRatio: 0,
 			simulateTouch: false,

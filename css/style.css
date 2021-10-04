@@ -2065,7 +2065,7 @@ body.ie ._ibg img {
 .footer__product-bar {
   position: fixed;
   bottom: 0;
-  z-index: 10;
+  z-index: 2;
   width: 100%;
   max-width: 1920px;
 }
@@ -5622,6 +5622,11 @@ body.ie ._ibg img {
   background-color: var(--light-gray);
 }
 
+.products-comparison__arrow {
+  top: 10%;
+  z-index: 2;
+}
+
 .products-comparison__scroll-bar {
   position: absolute;
   z-index: 2;
@@ -7409,6 +7414,15 @@ body.ie ._ibg img {
     display: none;
   }
 
+  .products-comparison__items._swiper {
+    overflow: visible;
+  }
+
+  .products-comparison__data {
+    margin: 0 -30px;
+    padding-left: 30px;
+  }
+
   .contacts-order__info {
     display: none;
   }
@@ -7551,6 +7565,12 @@ body.ie ._ibg img {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 auto;
             flex: 0 1 auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin: 0px 0px 28px 0px;
   }
 
@@ -7896,15 +7916,20 @@ body.ie ._ibg img {
   }
 
   .town-choise {
-    width: 200px;
-    right: 25px;
+    width: 90%;
+    right: 0;
+    left: 15px;
+    padding: 8px 16px;
   }
 
-  .town-choise__buttons {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+  .town-choise__label {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .town-choise__btn {
+    padding: 7px 38.5px;
+    font-size: 16px;
   }
 
   .town-choise__btn_yes {
@@ -8894,10 +8919,6 @@ body.ie ._ibg img {
             flex: 0 1 35%;
   }
 
-  .products-comparison__items._swiper {
-    overflow: visible;
-  }
-
   .products-comparison__slide .products-comparison__label {
     opacity: 0;
     visibility: hidden;
@@ -8923,13 +8944,11 @@ body.ie ._ibg img {
   }
 
   .products-comparison__data {
-    margin: 0 -30px;
-    padding-left: 30px;
     background-color: var(--light-gray);
   }
 
   .products-comparison__scroll-bar {
-    top: 385px;
+    top: 410px;
   }
 
   .products-comparison__label {
@@ -9267,6 +9286,12 @@ body.ie ._ibg img {
 
   .sidebar-catalogue__mob-btn {
     position: static;
+  }
+}
+
+@media (max-width: 991.98px) and (min-width: 767.98px) {
+  .products-comparison__card {
+    margin-bottom: 104px;
   }
 }
 
