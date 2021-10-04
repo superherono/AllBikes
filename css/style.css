@@ -7897,6 +7897,19 @@ body.ie ._ibg img {
     margin-bottom: 15px;
   }
 
+  .pagging__list li {
+    display: none;
+  }
+
+  .pagging__list li:nth-last-child(-n+2),
+  .pagging__list li:nth-child(-n+3) {
+    display: block;
+  }
+
+  .pagging__item {
+    font-size: 16px;
+  }
+
   .popup {
     padding: 57px 0;
   }
@@ -8835,7 +8848,22 @@ body.ie ._ibg img {
   }
 
   .catalogue__pagging {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin-bottom: 64px;
+  }
+
+  .catalogue__show-more-btn {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    width: 100%;
+    max-width: 450px;
+    margin-bottom: 24px;
+    padding: 10px;
+    font-size: 16px;
   }
 
   .sidebar-catalogue__rows {
