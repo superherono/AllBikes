@@ -647,9 +647,6 @@ let unlock = true;
 
 
 //=====================Init specifications spollers if specifications items lenght > 5================================
-
-
-
 if (isMobile.any()) {
 	let itemsBlock = document.querySelector('.specifications__content');
 	let specificationsItems = document.querySelectorAll('.specifications__item');
@@ -778,52 +775,7 @@ function body_lock_add(delay) {
 		}, delay);
 	}
 }
-//=================
-// LettersAnimation
-let title = document.querySelectorAll('._letter-animation');
-if (title) {
-	for (let index = 0; index < title.length; index++) {
-		let el = title[index];
-		let txt = el.innerHTML;
-		let txt_words = txt.replace('  ', ' ').split(' ');
-		let new_title = '';
-		for (let index = 0; index < txt_words.length; index++) {
-			let txt_word = txt_words[index];
-			let len = txt_word.length;
-			new_title = new_title + '<p>';
-			for (let index = 0; index < len; index++) {
-				let it = txt_word.substr(index, 1);
-				if (it == ' ') {
-					it = '&nbsp;';
-				}
-				new_title = new_title + '<span>' + it + '</span>';
-			}
-			el.innerHTML = new_title;
-			new_title = new_title + '&nbsp;</p>';
-		}
-	}
-}
-//=================
-//Tabs
-let tabs = document.querySelectorAll("._tabs");
-for (let index = 0; index < tabs.length; index++) {
-	let tab = tabs[index];
-	let tabs_items = tab.querySelectorAll("._tabs-item");
-	let tabs_blocks = tab.querySelectorAll("._tabs-block");
-	for (let index = 0; index < tabs_items.length; index++) {
-		let tabs_item = tabs_items[index];
-		tabs_item.addEventListener("click", function (e) {
-			for (let index = 0; index < tabs_items.length; index++) {
-				let tabs_item = tabs_items[index];
-				tabs_item.classList.remove('_active');
-				tabs_blocks[index].classList.remove('_active');
-			}
-			tabs_item.classList.add('_active');
-			tabs_blocks[index].classList.add('_active');
-			e.preventDefault();
-		});
-	}
-}
+
 //=================
 //Spollers
 let spollers = document.querySelectorAll("._spoller");
@@ -888,23 +840,7 @@ if (spollers.length > 0) {
 		spollersInit();
 	}, 0);
 }
-//=================
-//Gallery
-let gallery = document.querySelectorAll('._gallery');
-if (gallery) {
-	gallery_init();
-}
 
-function gallery_init() {
-	for (let index = 0; index < gallery.length; index++) {
-		const el = gallery[index];
-		lightGallery(el, {
-			counter: false,
-			selector: 'a',
-			download: false
-		});
-	}
-}
 //=================
 //SearchInList
 function search_in_list(input) {
@@ -923,57 +859,7 @@ function search_in_list(input) {
 		}
 	}
 }
-//=================
-//DigiFormat
-function digi(str) {
-	var r = str.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, "$1 ");
-	return r;
-}
-//=================
-//DiGiAnimate
-function digi_animate(digi_animate) {
-	if (digi_animate.length > 0) {
-		for (let index = 0; index < digi_animate.length; index++) {
-			const el = digi_animate[index];
-			const el_to = parseInt(el.innerHTML.replace(' ', ''));
-			if (!el.classList.contains('_done')) {
-				digi_animate_value(el, 0, el_to, 1500);
-			}
-		}
-	}
-}
 
-function digi_animate_value(el, start, end, duration) {
-	var obj = el;
-	var range = end - start;
-	// no timer shorter than 50ms (not really visible any way)
-	var minTimer = 50;
-	// calc step time to show all interediate values
-	var stepTime = Math.abs(Math.floor(duration / range));
-
-	// never go below minTimer
-	stepTime = Math.max(stepTime, minTimer);
-
-	// get current time and calculate desired end time
-	var startTime = new Date().getTime();
-	var endTime = startTime + duration;
-	var timer;
-
-	function run() {
-		var now = new Date().getTime();
-		var remaining = Math.max((endTime - now) / duration, 0);
-		var value = Math.round(end - (remaining * range));
-		obj.innerHTML = digi(value);
-		if (value == end) {
-			clearInterval(timer);
-		}
-	}
-
-	timer = setInterval(run, stepTime);
-	run();
-
-	el.classList.add('_done');
-}
 //=================
 //Popups
 let popup_link = document.querySelectorAll('._popup-link');
@@ -1140,71 +1026,7 @@ function _removeClasses(el, class_name) {
 function _is_hidden(el) {
 	return (el.offsetParent === null)
 }
-// ShowMore Beta ========================
-let moreBlocks = document.querySelectorAll('._more-block');
-if (moreBlocks.length > 0) {
-	let wrapper = document.querySelector('.wrapper');
-	for (let index = 0; index < moreBlocks.length; index++) {
-		const moreBlock = moreBlocks[index];
-		let items = moreBlock.querySelectorAll('._more-item');
-		if (items.length > 0) {
-			let itemsMore = moreBlock.querySelector('._more-link');
-			let itemsContent = moreBlock.querySelector('._more-content');
-			let itemsView = itemsContent.getAttribute('data-view');
-			if (getComputedStyle(itemsContent).getPropertyValue("transition-duration") === '0s') {
-				itemsContent.style.cssText = "transition-duration: 1ms";
-			}
-			itemsMore.addEventListener("click", function (e) {
-				if (itemsMore.classList.contains('_active')) {
-					setSize();
-				} else {
-					setSize('start');
-				}
-				itemsMore.classList.toggle('_active');
-				e.preventDefault();
-			});
 
-			let isScrollStart;
-
-			function setSize(type) {
-				let resultHeight;
-				let itemsContentHeight = 0;
-				let itemsContentStartHeight = 0;
-
-				for (let index = 0; index < items.length; index++) {
-					if (index < itemsView) {
-						itemsContentHeight += items[index].offsetHeight;
-					}
-					itemsContentStartHeight += items[index].offsetHeight;
-				}
-				resultHeight = (type === 'start') ? itemsContentStartHeight : itemsContentHeight;
-				isScrollStart = window.innerWidth - wrapper.offsetWidth;
-				itemsContent.style.height = `${resultHeight}px`;
-			}
-
-			itemsContent.addEventListener("transitionend", updateSize, false);
-
-			function updateSize() {
-				let isScrollEnd = window.innerWidth - wrapper.offsetWidth;
-				if (isScrollStart === 0 && isScrollEnd > 0 || isScrollStart > 0 && isScrollEnd === 0) {
-					if (itemsMore.classList.contains('_active')) {
-						setSize('start');
-					} else {
-						setSize();
-					}
-				}
-			}
-			window.addEventListener("resize", function (e) {
-				if (!itemsMore.classList.contains('_active')) {
-					setSize();
-				} else {
-					setSize('start');
-				}
-			});
-			setSize();
-		}
-	}
-}
 //==RATING======================================
 const ratings = document.querySelectorAll('.rating');
 if (ratings.length > 0) {
@@ -1216,9 +1038,7 @@ function initRatings() {
 	// "Бегаем" по всем рейтингам на странице
 	for (let index = 0; index < ratings.length; index++) {
 		const rating = ratings[index];
-		if (!rating.classList.contains('no-active')) {
-			initRating(rating);
-		}
+		initRating(rating);
 	}
 
 	// Инициализируем конкретный рейтинг
@@ -1310,179 +1130,9 @@ function initRatings() {
 		}
 	}
 }
-//=====================Rating================================
-//Изменяем ширину активных звезд
-let allRatings = document.querySelectorAll('.rating__active');
-
-if (allRatings.length > 0) {
-	allRatings.forEach(ratingActive => {
-		let ratingValueBox = ratingActive.closest('.rating').querySelector('.rating__value');
-		let activeRatingValue = ratingActive.getAttribute('data-rating');
-		// let activeRatingValue = ratingValue.innerHTML;
-		// let ratingValue = ratingActive.innerHTML;
-		setRatingActiveWidth(activeRatingValue, ratingActive);
-		if (ratingValueBox) {
-			ratingValueBox.innerHTML = activeRatingValue;
-		}
-	});
-}
-
-function setRatingActiveWidth(activeRatingValue, ratingActive) {
-	const ratingActiveWidth = activeRatingValue / 0.05;
-	ratingActive.style.width = `${ratingActiveWidth}%`;
-}
-//========================================
-//Animate
-function animate({
-	timing,
-	draw,
-	duration
-}) {
-	let start = performance.now();
-	requestAnimationFrame(function animate(time) {
-		// timeFraction изменяется от 0 до 1
-		let timeFraction = (time - start) / duration;
-		if (timeFraction > 1) timeFraction = 1;
-
-		// вычисление текущего состояния анимации
-		let progress = timing(timeFraction);
-
-		draw(progress); // отрисовать её
-
-		if (timeFraction < 1) {
-			requestAnimationFrame(animate);
-		}
-
-	});
-}
-
-function makeEaseOut(timing) {
-	return function (timeFraction) {
-		return 1 - timing(1 - timeFraction);
-	}
-}
-
-function makeEaseInOut(timing) {
-	return function (timeFraction) {
-		if (timeFraction < .5)
-			return timing(2 * timeFraction) / 2;
-		else
-			return (2 - timing(2 * (1 - timeFraction))) / 2;
-	}
-}
-
-function quad(timeFraction) {
-	return Math.pow(timeFraction, 2)
-}
-
-function circ(timeFraction) {
-	return 1 - Math.sin(Math.acos(timeFraction));
-}
-/*
-animate({
-	duration: 1000,
-	timing: makeEaseOut(quad),
-	draw(progress) {
-		window.scroll(0, start_position + 400 * progress);
-	}
-});*/
-
-//Полифилы
-(function () {
-	// проверяем поддержку
-	if (!Element.prototype.closest) {
-		// реализуем
-		Element.prototype.closest = function (css) {
-			var node = this;
-			while (node) {
-				if (node.matches(css)) return node;
-				else node = node.parentElement;
-			}
-			return null;
-		};
-	}
-})();
-(function () {
-	// проверяем поддержку
-	if (!Element.prototype.matches) {
-		// определяем свойство
-		Element.prototype.matches = Element.prototype.matchesSelector ||
-			Element.prototype.webkitMatchesSelector ||
-			Element.prototype.mozMatchesSelector ||
-			Element.prototype.msMatchesSelector;
-	}
-})();
-
-//Sender form
-//========================================================================================================================================================
-// Отправка данных на сервер
-function send(event, php) {
-	console.log("Отправка запроса");
-	event.preventDefault ? event.preventDefault() : event.returnValue = false;
-	var req = new XMLHttpRequest();
-	req.open('POST', php, true);
-	req.onload = function () {
-		if (req.status >= 200 && req.status < 400) {
-			json = JSON.parse(this.response); // Ебанный internet explorer 11
-			console.log(json);
-
-			// ЗДЕСЬ УКАЗЫВАЕМ ДЕЙСТВИЯ В СЛУЧАЕ УСПЕХА ИЛИ НЕУДАЧИ
-			if (json.result == "success") {
-				// Если сообщение отправлено
-				alert("Сообщение отправлено");
-			} else {
-				// Если произошла ошибка
-				alert("Ошибка. Сообщение не отправлено");
-			}
-			// Если не удалось связаться с php файлом
-		} else {
-			alert("Ошибка сервера. Номер: " + req.status);
-		}
-	};
-
-	// Если не удалось отправить запрос. Стоит блок на хостинге
-	req.onerror = function () {
-		alert("Ошибка отправки запроса");
-	};
-	req.send(new FormData(event.target));
-}
 
 
-//========================================================================================================================================================
-//По клику на стрелочку открывает дополнительный скрытый текст (плавность slideToggle)
 
-const help = document.querySelector('.help'); //Находим обьекты открытые для показа (по которым мы нажимаем и выезжает скрытый текст ) 
-if (help) {
-	help.addEventListener("click", function (e) {
-		const targetElem = e.target;
-		if (targetElem.classList.contains('help__link')) { //Проверяем если у нажатого обьекта есть ссылка для открытия скрытого контента
-			_slideToggle(targetElem.previousElementSibling, 500); //вызываем функцию "_slideToggle" которая отвечает за плавность открытия/закрытия скрытого текста и передаем ей обьект который следует анимировать (в данном случае - это предыдущий обьект перед .help__link) и время анимации.
-			targetElem.classList.toggle('_active'); //Вешаем класс на ссылку для анимирования стрелочки
-			e.preventDefault(); //Сбрысываем стандартное поведение у ссылки.
-		}
-		if (targetElem.classList.contains('help__more')) { //Если у нажатого обьекта есть нужный нам класс, то...
-			if (!targetElem.classList.contains('_loading')) { //Проверяем если нет "страховочного" класса
-				targetElem.classList.add('_loading'); //Вешаем класс, для страховки от нескольких вызовов
-				getMoreQuestions(targetElem); //Вызываем функцию и передаем нажатый элемент.
-			}
-			e.preventDefault();
-		}
-	});
-}
-
-//=====================Отправка данных AJAX================================
-
-async function getMoreQuestions(targetElem) {
-	const response = await fetch('data/faq.html'); //Находим файл на сервере с нужными данными
-	if (response.ok) {
-		const text = await response.text(); //полученые данные из файла добавляем в константу
-		const helpItems = document.querySelector('.help__items'); //Находим нужный блок, куда планируем вставлять данные
-		helpItems.insertAdjacentHTML('beforeend', text); //Вставляем в нужный нам блок данные из файла
-		targetElem.classList.remove('_loading'); //убираем класс
-	} else {
-		alert('Что-то пошло не так...');
-	}
-}
 //=====================Определяем есть ли на странице "бар" товара и добавляем соответсвующий класс футеру ================================
 let productBar = document.querySelector('.footer__product-bar');
 if (productBar) {
@@ -1514,7 +1164,7 @@ if (colorSchemes.length > 0) {
 	});
 }
 
-//=====================Header nav tabs================================
+//=====================Шапка. Показ\скрытие сайдбара================================
 
 let tabLinks = document.querySelectorAll('._tab-link');
 let tabsContent = document.querySelectorAll('._tab-content');
@@ -1564,7 +1214,7 @@ if (tabLinks.length > 0 && !isMobile.any()) {
 	});
 }
 
-//=====================Show UserBar Info================================
+//=====================Шапка. UserBar. Показ информации о мини корзине, сравнения товаров, строки поиска================================
 
 let userbarItems = document.querySelectorAll('.user-bar__item');
 
@@ -1746,7 +1396,7 @@ if (isMobile.any()) {
 	}
 }
 
-//=====================================================
+//=====================Страница товара. Фиксированый инфобар. Смена кнопки добавить\перейти в корзину по нажатию ================================
 let buttonAddCart = document.querySelector('.product-bar__btn_add-cart');
 let buttonGoCart = document.querySelector('.product-bar__btn_go-cart');
 
@@ -1757,7 +1407,7 @@ if (buttonAddCart) {
 	});
 }
 
-//=====================clear input on Bank page================================
+//=====================Очистка input при выборе города, по клику на иконку закрытия================================
 let bankInput = document.querySelector('.town-search__input');
 let bankIconClose = document.querySelector('.town-search__icon_close');
 let bankSearchList = document.querySelector('.town-search__info');
@@ -1827,11 +1477,10 @@ if (productSizes.length > 0) {
 		}
 	});
 }
-//=====================Order page. Add active class for choosed item================================
+//===========Страница офрмления заказа. Показ\скрытие допп информации/ ================================================================
 let orderPage = document.querySelector('.order');
 if (orderPage) {
 	let orderBlock = document.querySelectorAll('.delivery-order__items');
-	let btnAddSelfCompany = document.querySelector('.item-delivery__info_by-self');
 	let inputAddSelfCompany = document.querySelector('.delivery-order__self-company');
 
 	let inputIsShowed = false;
@@ -1841,6 +1490,13 @@ if (orderPage) {
 		element.addEventListener('click', event => {
 			let orderItem = event.target.closest('.item-delivery');
 			let addComapnyBtn = event.target.closest('.item-delivery__info_by-self');
+			let addBlock = event.target.closest('._add-label');
+			let addBlocks =document.querySelectorAll('._add-block');
+			
+			if (addBlock) {
+				_removeClasses(addBlocks,'_show');
+			}
+
 
 			if (inputIsShowed) {
 				_slideUp(inputAddSelfCompany);
@@ -1859,6 +1515,12 @@ if (orderPage) {
 			_removeClasses(currentOrderItems, '_active');
 
 			orderItem.classList.add('_active');
+
+			if (orderItem.hasAttribute('data-id')) {
+				let curentIndex = orderItem.getAttribute('data-id');
+				var currentAddBlock = document.querySelector('._add-block[data-id="'+curentIndex+'"]');
+				currentAddBlock.classList.add('_show');
+			}
 		  });
 		  
 	});
@@ -1893,15 +1555,6 @@ let townChoice = document.querySelector('.town-choise');
 			});
 		}
 	});
-	
-	
-
-
-
-
-
-
-
 //let btn = document.querySelectorAll('button[type="submit"],input[type="submit"]');
 let forms = document.querySelectorAll('form');
 if (forms.length > 0) {

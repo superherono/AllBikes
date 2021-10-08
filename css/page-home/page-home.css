@@ -6,6 +6,10 @@
   margin-bottom: 96px;
 }
 
+.page__categories_single {
+  margin-bottom: 144px;
+}
+
 .page__top-sales {
   margin-bottom: 62px;
 }
@@ -159,6 +163,9 @@
   position: relative;
   overflow: hidden;
   padding: 20px;
+  -webkit-transition: border-radius 0.3s ease 0s;
+  -o-transition: border-radius 0.3s ease 0s;
+  transition: border-radius 0.3s ease 0s;
 }
 
 .category__image {
@@ -1210,6 +1217,10 @@
     margin-bottom: 28px;
   }
 
+  .page__categories_single {
+    margin-bottom: 96px;
+  }
+
   .page__top-sales {
     margin-bottom: 44px;
   }
@@ -1523,6 +1534,10 @@
 }
 
 @media (any-hover: hover) {
+  .category:hover {
+    border-radius: 12px;
+  }
+
   .category:hover .category__image img {
     -webkit-transform: scale(1.1);
         -ms-transform: scale(1.1);

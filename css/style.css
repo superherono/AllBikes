@@ -32,17 +32,33 @@
 @font-face {
   font-family: "Raleway";
   font-display: swap;
-  src: url("../fonts/Raleway-Bold.woff") format("woff"), url("../fonts/Raleway-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: bold;
+  src: url("../fonts/Raleway-Black.woff") format("woff"), url("../fonts/Raleway-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
 }
 
 @font-face {
   font-family: "Raleway";
   font-display: swap;
-  src: url("../fonts/Raleway-Black.woff") format("woff"), url("../fonts/Raleway-Black.woff2") format("woff2");
-  font-weight: 900;
-  font-style: black;
+  src: url("../fonts/Raleway-Bold.woff") format("woff"), url("../fonts/Raleway-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  font-display: swap;
+  src: url("../fonts/Raleway-ExtraBold.woff") format("woff"), url("../fonts/Raleway-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  font-display: swap;
+  src: url("../fonts/Raleway-Medium.woff") format("woff"), url("../fonts/Raleway-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
@@ -58,23 +74,7 @@
   font-display: swap;
   src: url("../fonts/Raleway-SemiBold.woff") format("woff"), url("../fonts/Raleway-SemiBold.woff2") format("woff2");
   font-weight: 600;
-  font-style: semibold;
-}
-
-@font-face {
-  font-family: "Raleway";
-  font-display: swap;
-  src: url("../fonts/Raleway-ExtraBold.woff") format("woff"), url("../fonts/Raleway-ExtraBold.woff2") format("woff2");
-  font-weight: 800;
-  font-style: extrabold;
-}
-
-@font-face {
-  font-family: "Raleway";
-  font-display: swap;
-  src: url("../fonts/Raleway-Medium.woff") format("woff"), url("../fonts/Raleway-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: medium;
+  font-style: normal;
 }
 
 @font-face {
@@ -82,7 +82,7 @@
   font-display: swap;
   src: url("../fonts/Roboto-Bold.woff") format("woff"), url("../fonts/Roboto-Bold.woff2") format("woff2");
   font-weight: 700;
-  font-style: bsold;
+  font-style: normal;
 }
 
 @font-face {
@@ -90,7 +90,7 @@
   font-display: swap;
   src: url("../fonts/Roboto-Medium.woff") format("woff"), url("../fonts/Roboto-Medium.woff2") format("woff2");
   font-weight: 500;
-  font-style: medium;
+  font-style: normal;
 }
 
 @font-face {
@@ -548,6 +548,7 @@ textarea._error {
   top: 0;
   left: 0;
   color: var(--main-yellow);
+  font-size: 29px;
 }
 
 .rating__active_active {
@@ -967,6 +968,14 @@ textarea._error {
   color: var(--add-gray);
 }
 
+._add-block {
+  display: none;
+}
+
+._add-block._show {
+  display: block;
+}
+
 .row:after {
   display: block;
   content: "";
@@ -976,14 +985,7 @@ textarea._error {
 .rub:after {
   content: "₽";
   margin-left: 5px;
-}
-
-._hidden {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
+  font-family: "Raleway";
 }
 
 ol.counter {
@@ -1818,7 +1820,7 @@ body.ie ._ibg img {
       -ms-transform: translate(0px, -50%);
           transform: translate(0px, -50%);
   cursor: pointer;
-  background: url(../img/icons/sprites/close.svg) center/15px 15px no-repeat;
+  background: url(../img/icons/sprites/sprite.svg#close) center/15px 15px no-repeat;
 }
 
 .user-bar__item:not(:last-child) {
@@ -1893,17 +1895,25 @@ body.ie ._ibg img {
   bottom: -166px;
   left: -6px;
   width: 79%;
-  display: none;
-  padding-left: 40px;
+  padding: 0px 15px 0 40px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   background-color: var(--main-white);
+  -webkit-transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s;
+  -o-transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s, visibility 0.3s ease 0s;
 }
 
 .user-bar__search-list li {
   padding: 13px 0px;
+  line-height: 120%;
 }
 
 .user-bar__search-list._show {
-  display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .user-bar__icon {
@@ -2500,6 +2510,10 @@ body.ie ._ibg img {
   margin-bottom: 96px;
 }
 
+.page__categories_single {
+  margin-bottom: 144px;
+}
+
 .page__top-sales {
   margin-bottom: 62px;
 }
@@ -2653,6 +2667,9 @@ body.ie ._ibg img {
   position: relative;
   overflow: hidden;
   padding: 20px;
+  -webkit-transition: border-radius 0.3s ease 0s;
+  -o-transition: border-radius 0.3s ease 0s;
+  transition: border-radius 0.3s ease 0s;
 }
 
 .category__image {
@@ -8012,8 +8029,9 @@ body.ie ._ibg img {
   }
 
   .user-bar__search-list {
-    left: 5px;
-    bottom: -233px;
+    width: 90%;
+    left: 0px;
+    bottom: -175px;
   }
 
   .footer._bar-true {
@@ -8119,6 +8137,10 @@ body.ie ._ibg img {
 
   .page__categories {
     margin-bottom: 28px;
+  }
+
+  .page__categories_single {
+    margin-bottom: 96px;
   }
 
   .page__top-sales {
@@ -9245,6 +9267,12 @@ body.ie ._ibg img {
   }
 }
 
+@media (max-width: 346px) {
+  .user-bar__search-list {
+    bottom: -235px;
+  }
+}
+
 @media (max-width: 335px) {
   .product__name {
     font-size: 12px;
@@ -9414,6 +9442,10 @@ body.ie ._ibg img {
 
   .product-bar__btn_go-cart._active:hover {
     background-color: var(--darken-gray);
+  }
+
+  .category:hover {
+    border-radius: 12px;
   }
 
   .category:hover .category__image img {
