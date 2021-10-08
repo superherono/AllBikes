@@ -548,7 +548,6 @@ textarea._error {
   top: 0;
   left: 0;
   color: var(--main-yellow);
-  font-size: 29px;
 }
 
 .rating__active_active {
@@ -1548,6 +1547,10 @@ body.ie ._ibg img {
   font-size: 13px;
   line-height: 21px;
   color: var(--red);
+}
+
+.popup-comment .rating__active::before {
+  font-size: 29px;
 }
 
 .header {
@@ -2922,6 +2925,24 @@ body.ie ._ibg img {
   transition: all 0.3s ease 0s;
 }
 
+.product .rating__value {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.reviews {
+  min-height: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .reviews__empty {
   font-size: 13px;
   line-height: 161.5384615385%;
@@ -3622,6 +3643,24 @@ body.ie ._ibg img {
   -webkit-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+}
+
+.product .rating__value {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.reviews {
+  min-height: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .reviews__empty {
@@ -7594,6 +7633,7 @@ body.ie ._ibg img {
   .footer__user-bar {
     max-width: 620px;
     position: fixed;
+    z-index: 3;
     bottom: 0;
     display: block;
   }
@@ -7905,6 +7945,10 @@ body.ie ._ibg img {
     padding: 5px 0;
   }
 
+  .rating__body_active::before {
+    font-size: 15px;
+  }
+
   .rating__body_product-item::before {
     content: "★";
   }
@@ -8010,6 +8054,10 @@ body.ie ._ibg img {
     margin: 0px auto 24px;
     font-size: 10px;
     text-align: center;
+  }
+
+  .popup-comment .rating__active::before {
+    font-size: 15px;
   }
 
   .main-header {

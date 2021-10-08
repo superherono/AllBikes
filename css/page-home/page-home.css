@@ -429,6 +429,24 @@
   transition: all 0.3s ease 0s;
 }
 
+.product .rating__value {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.reviews {
+  min-height: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .reviews__empty {
   font-size: 13px;
   line-height: 161.5384615385%;
