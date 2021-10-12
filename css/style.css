@@ -1895,7 +1895,7 @@ body.ie ._ibg img {
 
 .user-bar__search-list {
   position: absolute;
-  bottom: -166px;
+  bottom: -179px;
   left: -6px;
   width: 79%;
   padding: 0px 15px 0 40px;
@@ -6830,10 +6830,6 @@ body.ie ._ibg img {
     width: 100%;
     padding: 10px 45px;
     border: 1px solid var(--main-gray);
-  }
-
-  .user-bar__search-list {
-    bottom: -169px;
   }
 
   .user-bar__icon {
