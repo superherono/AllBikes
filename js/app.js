@@ -28,9 +28,6 @@ if (sliders) {
 				slider.appendChild(sliderScroll);
 			}
 		}
-		if (slider.classList.contains('_gallery')) {
-			//slider.data('lightGallery').destroy(true);
-		}
 	}
 	sliders_bild_callback();
 }
@@ -42,11 +39,6 @@ let sliderHero = new Swiper('.hero__slider', {
 	spaceBetween: 10,
 	speed: 800,
 	autoHeight: true,
-	//touchRatio: 0,
-	//simulateTouch: false,
-	//loop: true,
-	//preloadImages: false,
-	//lazy: true,
 	// Dotts
 	pagination: {
 		el: '.hero__bullets',
@@ -57,36 +49,11 @@ let sliderHero = new Swiper('.hero__slider', {
 		nextEl: '.hero__arrow_right',
 		prevEl: '.hero__arrow_left',
 	},
-	/*
-	breakpoints: {
-		320: {
-			slidesPerView: 1,
-			spaceBetween: 0,
-			autoHeight: true,
-		},
-		768: {
-			slidesPerView: 2,
-			spaceBetween: 20,
-		},
-		992: {
-			slidesPerView: 3,
-			spaceBetween: 20,
-		},
-		1268: {
-			slidesPerView: 4,
-			spaceBetween: 30,
-		},
-	},
-	*/
 	on: {
 		lazyImageReady: function () {
 			ibg();
 		},
 	}
-	// And if we need scrollbar
-	//scrollbar: {
-	//	el: '.swiper-scrollbar',
-	//},
 });
 
 let sliderProducts = new Swiper('.top-sales__products', {
@@ -94,17 +61,7 @@ let sliderProducts = new Swiper('.top-sales__products', {
 	spaceBetween: 30,
 	speed: 800,
 	watchSlidesVisibility: true,
-	// autoHeight: true,
-	//touchRatio: 0,
-	//simulateTouch: false,
 	loop: true,
-	//preloadImages: false,
-	//lazy: true,
-	// Dotts
-	// pagination: {
-	// 	el: '.hero__bullets',
-	// 	clickable: true,
-	// },
 	// Arrows
 	navigation: {
 		nextEl: '.top-sales__arrow_right',
@@ -131,10 +88,6 @@ let sliderProducts = new Swiper('.top-sales__products', {
 			ibg();
 		},
 	}
-	// And if we need scrollbar
-	//scrollbar: {
-	//	el: '.swiper-scrollbar',
-	//},
 });
 
 let sliderStocks = new Swiper('.stocks__items', {
@@ -142,17 +95,7 @@ let sliderStocks = new Swiper('.stocks__items', {
 	spaceBetween: 24,
 	speed: 800,
 	watchSlidesVisibility: true,
-	// autoHeight: true,
-	//touchRatio: 0,
-	//simulateTouch: false,
 	loop: true,
-	//preloadImages: false,
-	//lazy: true,
-	// Dotts
-	// pagination: {
-	// 	el: '.hero__bullets',
-	// 	clickable: true,
-	// },
 	// Arrows
 	navigation: {
 		nextEl: '.stocks__arrow_right',
@@ -172,10 +115,6 @@ let sliderStocks = new Swiper('.stocks__items', {
 			slidesPerView: 3,
 			spaceBetween: 20,
 		},
-		// 1268: {
-		// 	slidesPerView: 4,
-		// 	spaceBetween: 30,
-		// },
 		1388: {
 			slidesPerView: 4,
 		}
@@ -186,10 +125,6 @@ let sliderStocks = new Swiper('.stocks__items', {
 			ibg();
 		},
 	}
-	// And if we need scrollbar
-	//scrollbar: {
-	//	el: '.swiper-scrollbar',
-	//},
 });
 
 let heroProductPageSlider = new Swiper('.hero-product-page__slider', {
@@ -197,11 +132,6 @@ let heroProductPageSlider = new Swiper('.hero-product-page__slider', {
 	spaceBetween: 10,
 	speed: 800,
 	autoHeight: true,
-	//touchRatio: 0,
-	//simulateTouch: false,
-	//loop: true,
-	//preloadImages: false,
-	//lazy: true,
 	// Dotts
 	pagination: {
 		el: '.hero__bullets',
@@ -212,36 +142,11 @@ let heroProductPageSlider = new Swiper('.hero-product-page__slider', {
 		nextEl: '.hero__arrow_right',
 		prevEl: '.hero__arrow_left',
 	},
-	/*
-	breakpoints: {
-		320: {
-			slidesPerView: 1,
-			spaceBetween: 0,
-			autoHeight: true,
-		},
-		768: {
-			slidesPerView: 2,
-			spaceBetween: 20,
-		},
-		992: {
-			slidesPerView: 3,
-			spaceBetween: 20,
-		},
-		1268: {
-			slidesPerView: 4,
-			spaceBetween: 30,
-		},
-	},
-	*/
 	on: {
 		lazyImageReady: function () {
 			ibg();
 		},
 	}
-	// And if we need scrollbar
-	//scrollbar: {
-	//	el: '.swiper-scrollbar',
-	//},
 });
 
 let sliderSimilarGoods = new Swiper('.similar-goods__content', {
@@ -249,17 +154,9 @@ let sliderSimilarGoods = new Swiper('.similar-goods__content', {
 	spaceBetween: 30,
 	speed: 800,
 	watchSlidesVisibility: true,
-	// autoHeight: true,
-	//touchRatio: 0,
-	//simulateTouch: false,
 	loop: true,
 	preloadImages: false,
 	lazy: true,
-	// Dotts
-	// pagination: {
-	// 	el: '.hero__bullets',
-	// 	clickable: true,
-	// },
 	// Arrows
 	navigation: {
 		nextEl: '.hero__arrow_right',
@@ -286,10 +183,6 @@ let sliderSimilarGoods = new Swiper('.similar-goods__content', {
 			ibg();
 		},
 	}
-	// And if we need scrollbar
-	//scrollbar: {
-	//	el: '.swiper-scrollbar',
-	//},
 });
 
 let sliderBuyMore = new Swiper('.buy-more__content', {
@@ -297,17 +190,7 @@ let sliderBuyMore = new Swiper('.buy-more__content', {
 	spaceBetween: 30,
 	speed: 800,
 	watchSlidesVisibility: true,
-	// autoHeight: true,
-	//touchRatio: 0,
-	//simulateTouch: false,
 	loop: true,
-	//preloadImages: false,
-	//lazy: true,
-	// Dotts
-	// pagination: {
-	// 	el: '.hero__bullets',
-	// 	clickable: true,
-	// },
 	// Arrows
 	navigation: {
 		nextEl: '.top-sales__arrow_right',
@@ -334,10 +217,6 @@ let sliderBuyMore = new Swiper('.buy-more__content', {
 			ibg();
 		},
 	}
-	// And if we need scrollbar
-	//scrollbar: {
-	//	el: '.swiper-scrollbar',
-	//},
 });
 
 let sliderCompare = new Swiper('.products-comparison__items', {
@@ -345,14 +224,6 @@ let sliderCompare = new Swiper('.products-comparison__items', {
 	speed: 800,
 	watchSlidesVisibility: true,
 	watchOverflow: true,
-	// autoHeight: true,
-	//preloadImages: false,
-	//lazy: true,
-	// Dotts
-	// pagination: {
-	// 	el: '.hero__bullets',
-	// 	clickable: true,
-	// },
 	scrollbar: {
 		el: '.products-comparison__scroll-bar',
 		draggable: true,
@@ -372,13 +243,6 @@ let sliderCompare = new Swiper('.products-comparison__items', {
 			simulateTouch: true,
 			
 		},
-		// 475: {
-		// 	slidesPerView: 2,
-		// },
-		// 768: {
-		// 	slidesPerView: 2,
-			
-		// },
 		1200: {
 			touchRatio: 0,
 			simulateTouch: false,
@@ -394,183 +258,7 @@ let sliderCompare = new Swiper('.products-comparison__items', {
 			ibg();
 		},
 	}
-	// And if we need scrollbar
-	//scrollbar: {
-	//	el: '.swiper-scrollbar',
-	//},
 });
-
-
-
-//==========================Слайдер с Прогресс баром==============================================================================================================================
-
-
-function sliders_bild_callback(params) { }
-
-let sliderScrollItems = document.querySelectorAll('._swiper_scroll');
-if (sliderScrollItems.length > 0) {
-	for (let index = 0; index < sliderScrollItems.length; index++) {
-		const sliderScrollItem = sliderScrollItems[index];
-		const sliderScrollBar = sliderScrollItem.querySelector('.swiper-scrollbar');
-		const sliderScroll = new Swiper(sliderScrollItem, {
-			observer: true,
-			observeParents: true,
-			direction: 'vertical',
-			slidesPerView: 'auto',
-			freeMode: true,
-			scrollbar: {
-				el: sliderScrollBar,
-				draggable: true,
-				snapOnRelease: false
-			},
-			mousewheel: {
-				releaseOnEdges: true,
-			},
-		});
-		sliderScroll.scrollbar.updateSize();
-	}
-}
-
-
-// //Слайдер с добавлением фракций
-// let sliderOurSpaces;
-// let allSlides = document.querySelector('._fraction__all'); //Находим блок с счетчиком общего количества фракций
-// let allCurrentSlide = document.querySelector('._fraction__current'); //Находим блок с счетчиком текущего номера фракции
-// const allSlidesCounter = document.querySelectorAll('.gallery__link').length; //Вычесляем общее количество слайдов
-
-// sliderOurSpaces = new Swiper('.gallery__slider', {
-// 	observer: true,
-// 	observeParents: true,
-// 	slidesPerView: 3,
-// 	spaceBetween: 30,
-// 	watchSlidesVisibility: true,
-// 	speed: 800,
-// 	loop: true,
-// 	//preloadImages: false,
-// 	//lazy: true,
-// 	// Dotts
-// 	navigation: {
-// 		nextEl: '.header-our-spaces__arrow_right',
-// 		prevEl: '.header-our-spaces__arrow_left',
-// 	},
-// 	pagination: {
-// 		el: '.slider-our-spaces__progress',
-// 		type: 'progressbar',
-// 	},
-// 	breakpoints: {
-// 		// when window width is >= 320px
-// 		320: {
-// 			slidesPerView: 1.1,
-// 			spaceBetween: 15,
-// 			//autoHeight: true,
-// 		},
-// 		// when window width is >= 480px
-// 		550: {
-// 			slidesPerView: 2,
-// 			spaceBetween: 30
-// 		},
-// 		// when window width is >= 640px
-// 		992: {
-// 			slidesPerView: 3,
-// 			spaceBetween: 30
-// 		}
-// 	},
-// 	on: {
-// 		lazyImageReady: function () {
-// 			ibg();
-// 		},
-// 		init: function (slider) {
-// 			allSlides.innerHTML = setZeroFormat(allSlidesCounter);
-// 		},
-// 		slideChange: function (slider) {
-// 			let currentSlide = ++slider.realIndex;
-// 			allCurrentSlide.innerHTML = setZeroFormat(currentSlide);
-// 		},
-// 	}
-// });
-
-// function setZeroFormat(item) {
-// 	let result = item >= 10 ? item : "0" + item;
-// 	return result;
-// }
-//Стили под прогресс бар можно найти в ui.scss
-
-
-//===========================Одновременно несколько слайдеров у каждого рабоает пагинация и фракции (для корректной работы нужно одинаковое количество слайдов, controls и tabs)=============================================================================================================================
-// const sliderBlocks = document.querySelectorAll('.slider-our-spaces__block'); //Находим все слайдеры (в этом примере каждый слайдер в оболочке находится, соответсвенно мы ищем оболочку по факту)
-// function initOurFacilitiesSlider() {
-
-// 	if (sliderBlocks.length > 0) {
-// 		sliderBlocks.forEach((sliderBlock, index) => {
-// 			sliderBlock.classList.add('_show'); //Открываем все блоки для правильного считавания информации swipera
-// 			const slider = sliderBlock.querySelector('.slider-our-spaces__slider'); //Находим внутри оболочки сам слайдер (тот на который мы вешаем класс swiper)
-// 			const allFraction = document.querySelectorAll('.controls-slider-our-spaces__item')[index].querySelector('._fraction__all'); //Получаем общее кол-во фракций у текущего слайдера
-// 			const currentFraction = document.querySelectorAll('.controls-slider-our-spaces__item')[index].querySelector('._fraction__current'); //Получаем текущий номер фракций у текущего слайдера
-// 			const currentIndexPagination = document.querySelectorAll('.controls-slider-our-spaces__item')[index].querySelector('.slider-our-spaces__progress'); //Получаем текущий индекс пагинации
-// 			const allSlides = slider.querySelectorAll('.slider-our-spaces__slide').length; //Получаем общее колличество слайдов у текущего слайдера
-// 			const sliderItem = new Swiper(slider, {
-// 				observer: true,
-// 				observeParents: true,
-// 				slidesPerView: 1,
-// 				spaceBetween: 0,
-// 				//watchSlidesVisibility: true,
-// 				speed: 800,
-// 				loop: true,
-// 				pagination: {
-// 					el: currentIndexPagination, //Подставляем найденое выше значение
-// 					type: 'progressbar',
-// 				},
-// 				on: {
-// 					lazyImageReady: function () {
-// 						ibg();
-// 					},
-// 					init: function () {
-// 						allFraction.innerHTML = setZeroFormat(allSlides);
-// 					},
-// 					slideChange: function (sl) {
-// 						let currentSlide = ++sl.realIndex;
-// 						currentFraction.innerHTML = setZeroFormat(currentSlide);
-// 					},
-// 				}
-// 			});
-// 			sliderBlock.classList.remove('_show'); //После инициализации слайдера скрываем от показа все блоки
-// 		});
-// 	}
-// }
-// initOurFacilitiesSlider();
-
-// const tabsWrapper = document.querySelector('.slider-our-spaces__tabs'); //Находим оболочку с табами
-
-// //Вешаем прослушку на клик по табам
-// tabsWrapper.addEventListener("click", function (e) {
-// 	const targetElement = e.target; //Получаем индекс обьекта по которому нажали именно
-// 	if (targetElement.classList.contains('tabs-slider-our-spaces__item')) { //Проверяем что нажали именно по табу
-// 		const tabsElements = Array.from(document.querySelectorAll('.tabs-slider-our-spaces__item')); //Получаем коллекцию всех табов и переделываем их в массив с помощью Array.from
-// 		tabsElements.forEach(item => item.classList.remove('_active')); //Убираем у всех табов класс
-// 		targetElement.classList.add('_active'); //Добавлем класс только нажатому
-
-// 		const index = tabsElements.findIndex(item => item.classList.contains('_active')); //Находим нужный таб с классом active
-
-// 		const slidersControls = document.querySelectorAll('.controls-slider-our-spaces__item');
-// 		slidersControls.forEach(item => item.classList.remove('_active'));
-
-// 		sliderBlocks.forEach(item => item.classList.remove('_active')); //Убираем у всех слайдеров класс active
-
-// 		slidersControls[index].classList.add('_active');
-// 		sliderBlocks[index].classList.add('_active'); //Добавлем только нужному слайдеру класс active
-// 	}
-// });
-
-
-
-
-
-// //========================================================================================================================================================
-// function setZeroFormat(item) {
-// 	let result = item >= 10 ? item : "0" + item;
-// 	return result;
-// }
-
 
 
 var ua = window.navigator.userAgent;
@@ -1359,7 +1047,7 @@ if (sizeItems.length > 0) {
 		});
 	});
 }
-//=====================================================
+//========================Страница товара.На моб версии скрытие блоков(характеритсики, отзывы и пр.) в слайдер =============================
 if (isMobile.any()) {
 	
 	let mobSlider = document.querySelector('.mob-slider__content');
@@ -1444,7 +1132,6 @@ if (!isMobile.any()) {
 				let productMainHeight = e.offsetHeight;
 				let hoverHeight = hoverText.offsetHeight;
 				let currentHeieght = productMainHeight - hoverHeight;
-				console.log(currentHeieght);
 				hoverText.classList.add('_hide');
 				e.style.height = currentHeieght + "px";
 				e.addEventListener("mouseenter", function (e) {
@@ -1452,7 +1139,6 @@ if (!isMobile.any()) {
 					_slideDown(hoverText);
 				});
 				e.addEventListener("mouseleave", function (e) {
-					console.log('test');
 					productImage.classList.remove('_hide-image');
 					_slideUp(hoverText);
 				});
@@ -1537,8 +1223,6 @@ let townChoice = document.querySelector('.town-choise');
 			}, 0);
 
 			townChoice.addEventListener("click", e => {
-				console.log(e.target);
-				
 				if (e.target.classList.contains('town-choise__btn_yes')) {
 					townChoice.classList.remove('_active');
 				}
@@ -1694,8 +1378,6 @@ function form_add_error(input) {
 }
 
 function form_remove_error(input) {
-	console.log('remove');
-	console.log(input);
 	input.classList.remove('_error');
 	input.parentElement.classList.remove('_error');
 
