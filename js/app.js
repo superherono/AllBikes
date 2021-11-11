@@ -865,7 +865,10 @@ if (tabLinks.length > 0 && !isMobile.any()) {
 			let tabId = tabLink.getAttribute('data-id');
 			let tabContent = document.querySelector('._tab-content[data-id="' + tabId + '"]');
 
-			e.preventDefault();
+			
+			if (!e.target.parentNode.classList.contains('sidebar__group-item')) {
+				e.preventDefault();
+			}
 
 			if (!tabLink.classList.contains('_active')) {
 				_removeClasses(tabLinks, '_active');
