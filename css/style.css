@@ -1787,9 +1787,9 @@ body.ie ._ibg img {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  top: 31px;
+  top: 41px;
   right: 0;
-  z-index: 10;
+  z-index: -1;
   cursor: auto;
   -webkit-transition: visibility 0.3s ease 0s, opacity 0.3s ease 0s;
   -o-transition: visibility 0.3s ease 0s, opacity 0.3s ease 0s;
@@ -1800,6 +1800,11 @@ body.ie ._ibg img {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  z-index: 10;
+}
+
+.user-bar__popup._active .mini-cart {
+  display: block;
 }
 
 .icon-menu {
@@ -4574,6 +4579,7 @@ body.ie ._ibg img {
 }
 
 .mini-cart {
+  display: none;
   position: relative;
   width: 320px;
   max-height: 425px;

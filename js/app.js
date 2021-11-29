@@ -936,16 +936,13 @@ userbarItems.forEach(userbarItem => {
 
 			userbarItem.addEventListener("mouseleave", function (e) {
 				setTimeout(function () {
-					if (!activePopup.classList.contains('_show')) {
-
-					} else {
+					if (activePopup.classList.contains('_show')) {
 						let itemsWrapper = activePopup.querySelector('.mini-cart__items');
 						let emptyMessage = activePopup.querySelector('.mini-cart__empty');
 						activePopup.classList.remove('_active');
 						itemsWrapper.classList.remove('_active');
 						emptyMessage.classList.remove('_active');
 					}
-
 				}, 100);
 
 			});
