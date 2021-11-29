@@ -946,7 +946,7 @@ userbarItems.forEach(userbarItem => {
 						emptyMessage.classList.remove('_active');
 					}
 
-				}, 500);
+				}, 100);
 
 			});
 		}
